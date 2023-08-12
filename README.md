@@ -24,10 +24,21 @@ The `eslint-config-typescript` package is designed to enhance TypeScript project
 
 Installed the desired package:
 
-4. Update your project's `.eslintrc.js` file to extend our configuration:
+1.Install the required dependencies 
+```sh
+npm install <package-name> -D
+pnpm install <package-name> -D
+yarn add <package-name> -D
+```
+
+2. Update your project's `.eslintrc.js` file to extend our configuration:
 ```javascript
 module.exports = {
   extends: ['@eslint-config-react'],
   // Your other ESLint settings...
 };
+
+
+## License
+This project is licensed under the MIT License. You can find the complete license terms in the LICENSE file.
 
