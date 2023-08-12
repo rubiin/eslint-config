@@ -18,7 +18,6 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "prettier": "^3.0.1",
     "eslint": "^8.46.0",
     "react": "^18.2.0",
     "typescript": "^5.1.6"

@@ -11,7 +11,6 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:unicorn/recommended",
-		"plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
   ],
   ignorePatterns: [
@@ -236,31 +235,5 @@ module.exports = {
         allowSeparatedGroups: false,
       },
     ],
-    "prettier/prettier": [
-			"error",
-			{
-				trailingComma: "all",
-				bracketSpacing: true,
-				arrowParens: "avoid",
-				useTabs: true,
-				tabWidth: 4,
-				endOfLine: "lf",
-				htmlWhitespaceSensitivity: "css",
-				printWidth: 100,
-				proseWrap: "preserve",
-				requirePragma: false,
-				semi: true,
-				singleQuote: false,
-				vueIndentScriptAndStyle: true,
-				overrides: [
-					{
-						files: "*.json",
-						options: {
-							printWidth: 200,
-						},
-					},
-				],
-			},
-		],
   },
 }
