@@ -1,0 +1,26 @@
+{
+  "name": "@rubiin/eslint-react",
+  "version": "0.0.2-beta.2",
+  "description": "ESLint config for react with typescript",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint . --config=index.js"
+  },
+  "keywords": [],
+  "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@rubiin/eslint-config-ts": "*",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.1",
+    "eslint": "^8.46.0",
+    "react": "^18.2.0",
+    "typescript": "^5.1.6"
+  }
+}

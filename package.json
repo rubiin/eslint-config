@@ -1,12 +1,17 @@
 {
-  "name": "eslint-config",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {},
+  "name": "@rubiin/eslint-config-monorepo",
+  "version": "0.0.2-beta.2",
   "private": true,
   "dependencies": {},
   "devDependencies": {
     "nx": "16.6.0",
-    "nx-cloud": "latest"
+    "nx-cloud": "latest",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.47.0"
+  },
+  "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "release": "bumpp -r && pnpm -r publish --access public"
   }
 }
