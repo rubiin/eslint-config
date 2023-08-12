@@ -13,7 +13,7 @@
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@rubiin/eslint-config-ts": "*",
+    "@rubiin/eslint-config-typescript": "*",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
