@@ -37,6 +37,7 @@ module.exports = {
   extends: ['@eslint-config-react'],
   // Your other ESLint settings...
 };
+```
 
 
 ## License
