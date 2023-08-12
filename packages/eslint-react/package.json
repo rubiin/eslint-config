@@ -1,0 +1,31 @@
+{
+  "name": "@rubiin/eslint-config-react",
+  "version": "0.0.2",
+  "description": "",
+  "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/rubiin/eslint-config",
+  "keywords": [
+    "eslint-config"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint . --config=index.js"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "@rubiin/eslint-config-ts": "*",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "react": "^18.2.0",
+    "typescript": "^5.1.6"
+  }
+}
