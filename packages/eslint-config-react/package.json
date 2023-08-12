@@ -1,5 +1,5 @@
 {
-  "name": "@rubiin/eslint-react",
+  "name": "@rubiin/eslint-config-react",
   "version": "0.0.2-beta.2",
   "description": "ESLint config for react with typescript",
   "main": "index.js",
