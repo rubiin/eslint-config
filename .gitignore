@@ -5,6 +5,8 @@ dist
 tmp
 /out-tsc
 
+packages/test
+
 # dependencies
 node_modules
 
