@@ -1,6 +1,6 @@
 # ESLint Configuration Monorepo for React and TypeScript
 
-Welcome to the my ESLint Config Monorepo! 🚀 This repository houses a collection of meticulously crafted ESLint configurations tailored for React and TypeScript projects. Whether you're a coding newbie or a seasoned developer, we've got your linting needs covere from reasonable defaults to best practices with  only one-line of config
+Welcome to my ESLint Config Monorepo! 🚀 Here, you'll find meticulously crafted ESLint configurations tailored for React and TypeScript projects. Whether you're a coding newbie or experienced developer, we've got you covered with just one-line configuration. Elevate your code quality with our industry best practices for React, and TypeScript. Happy linting! 🧹📝
 
 ## Table of Contents
 
