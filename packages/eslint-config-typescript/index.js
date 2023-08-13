@@ -1,8 +1,4 @@
-const fs = require('node:fs')
-const { join } = require('node:path')
-const process = require('node:process')
 
-const tsconfig = process.env.ESLINT_TSCONFIG || 'tsconfig.eslint.json'
 
 
 module.exports = {
@@ -11,7 +7,8 @@ module.exports = {
     browser: true,
     node: true,
   },
-
+  parser: '@typescript-eslint/parser',
+  parserOptions: { sourceType: 'module' },
   reportUnusedDisableDirectives: true,
   extends: [
     "./standard",
@@ -21,7 +18,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:deprecation/recommended",
   ],
-
+  files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
   ignorePatterns: [
     "*.min.*",
     "*.d.ts",
@@ -55,56 +52,6 @@ module.exports = {
     // force exclude
     "**/.vitepress/cache",
   ],
-  overrides: fs.existsSync(join(process.cwd(), tsconfig))
-    ? []
-    : [
-        {
-          parserOptions: {
-            tsconfigRootDir: process.cwd(),
-            project: [tsconfig],
-          },
-          parser: "@typescript-eslint/parser",
-          excludedFiles: ["**/*.md/*.*"],
-          files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
-          rules: {
-            "deprecation/deprecation": "error",
-            "no-throw-literal": "off",
-            "@typescript-eslint/no-throw-literal": "error",
-            "no-implied-eval": "off",
-            "@typescript-eslint/no-implied-eval": "error",
-            "dot-notation": "off",
-            "@typescript-eslint/dot-notation": [
-              "error",
-              { allowKeywords: true },
-            ],
-            "@typescript-eslint/no-floating-promises": "error",
-            "@typescript-eslint/no-misused-promises": "error",
-            "@typescript-eslint/await-thenable": "error",
-            "@typescript-eslint/no-for-in-array": "error",
-            "@typescript-eslint/no-unnecessary-type-assertion": "error",
-            "@typescript-eslint/no-unsafe-argument": "error",
-            "@typescript-eslint/no-unsafe-assignment": "error",
-            "@typescript-eslint/no-unsafe-call": "error",
-            "@typescript-eslint/no-unsafe-member-access": "error",
-            "@typescript-eslint/no-unsafe-return": "error",
-            "require-await": "off",
-            "@typescript-eslint/require-await": "error",
-            "@typescript-eslint/restrict-plus-operands": "error",
-            "@typescript-eslint/restrict-template-expressions": "error",
-            "@typescript-eslint/unbound-method": "error",
-          },
-        },
-        {
-          // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/unbound-method.md
-          files: ["**/__tests__/**/*.ts", "**/*.spec.ts", "**/*.test.ts"],
-          plugins: ["jest"],
-          rules: {
-            // you should turn the original rule off *only* for test files
-            "@typescript-eslint/unbound-method": "off",
-            "jest/unbound-method": "error",
-          },
-        },
-      ],
   rules: {
     // import
     "import/order": "error",
@@ -284,6 +231,7 @@ module.exports = {
     "unicorn/prefer-number-properties": "error",
     // Ban `new Array` as `Array` constructor's params are ambiguous
     "unicorn/no-new-array": "error",
+    "deprecation/deprecation": "error",
 
     "no-use-before-define": [
       "error",
@@ -440,5 +388,29 @@ module.exports = {
     "@typescript-eslint/triple-slash-reference": "off",
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
+    "no-throw-literal": "off",
+    "@typescript-eslint/no-throw-literal": "error",
+    "no-implied-eval": "off",
+    "@typescript-eslint/no-implied-eval": "error",
+    "dot-notation": "off",
+    "@typescript-eslint/dot-notation": [
+      "error",
+      { allowKeywords: true },
+    ],
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-misused-promises": "error",
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-for-in-array": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/no-unsafe-argument": "error",
+    "@typescript-eslint/no-unsafe-assignment": "error",
+    "@typescript-eslint/no-unsafe-call": "error",
+    "@typescript-eslint/no-unsafe-member-access": "error",
+    "@typescript-eslint/no-unsafe-return": "error",
+    "require-await": "off",
+    "@typescript-eslint/require-await": "error",
+    "@typescript-eslint/restrict-plus-operands": "error",
+    "@typescript-eslint/restrict-template-expressions": "error",
+    "@typescript-eslint/unbound-method": "error",
   },
 };
