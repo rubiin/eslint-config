@@ -238,7 +238,7 @@ module.exports = {
     "prefer-promise-reject-errors": 'error',
     "prefer-regex-literals": ['error', { disallowRedundantWrapping: true }],
     "quote-props": ['error', 'as-needed'],
-    quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
+    quotes: ['error', 'double', { avoidEscape: true, allowTemplateLiterals: false }],
     "rest-spread-spacing": ['error', 'never'],
     semi: ['error', 'never'],
     "semi-spacing": ['error', { before: false, after: true }],

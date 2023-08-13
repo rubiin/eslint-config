@@ -19,6 +19,7 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:unicorn/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:deprecation/recommended",
   ],
 
   ignorePatterns: [
@@ -66,6 +67,7 @@ module.exports = {
           excludedFiles: ["**/*.md/*.*"],
           files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
           rules: {
+            "deprecation/deprecation": "error",
             "no-throw-literal": "off",
             "@typescript-eslint/no-throw-literal": "error",
             "no-implied-eval": "off",
@@ -118,7 +120,7 @@ module.exports = {
 
     // Common
     curly: ["error", "multi-or-nest", "consistent"],
-    quotes: ["error", "single"],
+    quotes: ["error", "double"],
     "quote-props": ["error", "consistent-as-needed"],
 
     "no-param-reassign": "off",
@@ -383,10 +385,10 @@ module.exports = {
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
     "object-curly-spacing": "off",
     "@typescript-eslint/object-curly-spacing": ["error", "always"],
-    semi: "off",
-    "@typescript-eslint/semi": "error",
+    "semi": "off",
+    "@typescript-eslint/semi": ["error", "always"],
     quotes: "off",
-    "@typescript-eslint/quotes": ["error", "single"],
+    "@typescript-eslint/quotes": ["error", "double"],
     "space-before-blocks": "off",
     "@typescript-eslint/space-before-blocks": ["error", "always"],
     "space-before-function-paren": "off",
