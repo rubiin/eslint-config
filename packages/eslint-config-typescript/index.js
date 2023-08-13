@@ -18,7 +18,6 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:deprecation/recommended",
   ],
-  files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
   ignorePatterns: [
     "*.min.*",
     "*.d.ts",
