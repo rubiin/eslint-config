@@ -1,6 +1,6 @@
 {
   "name": "@rubiin/eslint-config-typescript",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "ESLint config for TypeScript projects",
   "main": "index.js",
   "files": [
@@ -23,6 +23,5 @@
     "eslint-plugin-deprecation": "^1.5.0",
     "eslint-plugin-unicorn": "^48.0.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
