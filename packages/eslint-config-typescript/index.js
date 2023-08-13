@@ -51,6 +51,17 @@ module.exports = {
     // force exclude
     "**/.vitepress/cache",
   ],
+  "overrides": [
+    {
+      // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/unbound-method.md
+      files: ['**/__tests__/**/*.ts', '**/*.spec.ts', '**/*.test.ts', "**/*.e2e.ts"],
+      plugins: ['jest'],
+      rules: {
+        // you should turn the original rule off *only* for test files
+        '@typescript-eslint/unbound-method': 'off',
+        'jest/unbound-method': 'error',
+      },
+    }],
   rules: {
     // import
     "import/order": "error",
