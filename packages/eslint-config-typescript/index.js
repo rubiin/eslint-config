@@ -117,7 +117,6 @@ module.exports = {
     "import/no-self-import": "error",
 
     // Common
-    semi: ["error", "never"],
     curly: ["error", "multi-or-nest", "consistent"],
     quotes: ["error", "single"],
     "quote-props": ["error", "consistent-as-needed"],
@@ -385,7 +384,7 @@ module.exports = {
     "object-curly-spacing": "off",
     "@typescript-eslint/object-curly-spacing": ["error", "always"],
     semi: "off",
-    "@typescript-eslint/semi": ["error", "never"],
+    "@typescript-eslint/semi": "error",
     quotes: "off",
     "@typescript-eslint/quotes": ["error", "single"],
     "space-before-blocks": "off",
