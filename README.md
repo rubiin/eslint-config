@@ -24,7 +24,8 @@ The `eslint-config-typescript` package is designed to enhance TypeScript project
 
 Installed the desired package:
 
-1.Install the required dependencies 
+1.Install the required dependencies
+
 ```sh
 npm install <package-name> -D
 pnpm install <package-name> -D
@@ -32,14 +33,14 @@ yarn add <package-name> -D
 ```
 
 2. Update your project's `.eslintrc.js` file to extend our configuration:
+
 ```javascript
 module.exports = {
-  extends: ['@eslint-config-react'],
+  extends: ["@eslint-config-react"],
   // Your other ESLint settings...
 };
 ```
-> **_NOTE:_**  Since the code styling too is handled by eslint, you might want to remove prettier or they will be in conflict
 
 ## License
-This project is licensed under the MIT License. You can find the complete license terms in the LICENSE file.
 
+This project is licensed under the MIT License. You can find the complete license terms in the LICENSE file.

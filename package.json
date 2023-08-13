@@ -2,16 +2,17 @@
   "name": "@rubiin/eslint-config-monorepo",
   "version": "1.0.14",
   "private": true,
-  "dependencies": {},
   "devDependencies": {
-    "nx": "16.6.0",
-    "nx-cloud": "latest",
+    "prettier": "^2.8.8",
     "bumpp": "^9.1.1",
-    "eslint": "^8.47.0"
+    "eslint": "^8.47.0",
+    "nx": "16.6.0",
+    "nx-cloud": "latest"
   },
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "lint": "echo 'linting'",
     "release": "bumpp -r && pnpm -r publish --access public"
   }
 }

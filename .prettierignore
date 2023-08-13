@@ -1,0 +1,4 @@
+# Ignore all generated files and directories
+packages/test
+package-lock.json
+pnpm-lock.yaml
