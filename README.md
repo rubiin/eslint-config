@@ -38,7 +38,7 @@ module.exports = {
   // Your other ESLint settings...
 };
 ```
-> **_NOTE:_**  Since the syling too is handled by eslint, you might want to remove prettier or they will be in conflict
+> **_NOTE:_**  Since the code styling too is handled by eslint, you might want to remove prettier or they will be in conflict
 
 ## License
 This project is licensed under the MIT License. You can find the complete license terms in the LICENSE file.
