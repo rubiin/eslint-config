@@ -9,11 +9,11 @@ module.exports = {
   reportUnusedDisableDirectives: true,
   extends: [
     "./standard",
-    "import/recommended",
-    "import/typescript",
-    "unicorn/recommended",
-    "@typescript-eslint/recommended",
-    "deprecation/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:unicorn/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:deprecation/recommended",
   ],
   ignorePatterns: [
     "*.min.*",

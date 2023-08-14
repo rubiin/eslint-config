@@ -1,9 +1,9 @@
 module.exports = {
   extends:
-  ["react/recommended",
-  "react-hooks/recommended",
-  "@rubiin/eslint-config-ts",
-  "react/jsx-runtime"
+  ["plugin:react/recommended",
+  "plugin:react-hooks/recommended",
+  "plugin:@rubiin/eslint-config-ts",
+  "plugin:react/jsx-runtime"
 ],
   settings: {
     react: {
