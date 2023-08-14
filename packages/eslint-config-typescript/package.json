@@ -1,6 +1,6 @@
 {
   "name": "@rubiin/eslint-config-typescript",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "ESLint config for TypeScript projects",
   "main": "index.js",
   "files": [
