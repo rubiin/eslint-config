@@ -334,7 +334,7 @@ module.exports = {
     quotes: "off", // this is recommended by typescript-eslint
     "@typescript-eslint/quotes": [
       "error",
-      "single",
+      "double",
       { avoidEscape: true, allowTemplateLiterals: true },
     ],
     "space-before-blocks": "off",
