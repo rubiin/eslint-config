@@ -90,7 +90,7 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"],
     "no-constant-condition": "error",
     "no-debugger": "error",
-    "no-console": ["error", { allow: ["warn", "error", "debug"] }],
+    "no-console": ["error", { allow: ["warn", "error", "debug","time","timeEnd"] }],
     "no-cond-assign": ["error", "always"],
     "func-call-spacing": "off",
     "key-spacing": ["error", { beforeColon: false, afterColon: true }],
