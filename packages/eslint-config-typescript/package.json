@@ -14,8 +14,8 @@
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/parser": "^6.4.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
     "eslint-import-resolver-typescript": "^3.6.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jest": "^27.2.3",
