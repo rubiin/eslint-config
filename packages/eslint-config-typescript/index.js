@@ -90,7 +90,7 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"],
     "no-constant-condition": "error",
     "no-debugger": "error",
-    "no-console": ["error", { allow: ["warn", "error", "debug","time","timeEnd"] }],
+    "no-console": ["error", { allow: ["warn", "error", "debug", "time", "timeEnd"] }],
     "no-cond-assign": ["error", "always"],
     "func-call-spacing": "off",
     "key-spacing": ["error", { beforeColon: false, afterColon: true }],
@@ -134,6 +134,12 @@ module.exports = {
         message: "Use `Object.getOwnPropertyDescriptor` instead.",
       },
     ],
+
+    // promises
+    "no-await-in-loop": "error",
+    "no-promise-executor-return": "error",
+    "max-nested-callbacks": ["error", 3],
+    "prefer-promise-reject-errors": ["error", { allowEmptyReject: true }],
 
     // es6
     "no-var": "error",
