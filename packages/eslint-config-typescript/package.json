@@ -10,9 +10,9 @@
   "scripts": {
     "lint": "eslint . --config=index.js"
   },
-  "keywords": [],
+  "keywords": ["eslint", "typescript", "eslint-config", "eslint-plugin", "eslint-config-typescript"],
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",

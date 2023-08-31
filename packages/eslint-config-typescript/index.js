@@ -45,6 +45,9 @@ module.exports = {
   ],
   overrides: [
     {
+      env:{
+        "jest/globals": true
+      },
       // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/unbound-method.md
       files: ["**/__tests__/**/*.ts", "**/*.spec.ts", "**/*.test.ts", "**/*.e2e.ts"],
       extends: [
@@ -54,9 +57,9 @@ module.exports = {
         "plugin:unicorn/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:deprecation/recommended",
-        "jest",
+        "plugin:jest/recommended"
       ],
-
+      plugins: ["jest"],
       rules: {
         // you should turn the original rule off *only* for test files
         "@typescript-eslint/unbound-method": "off",
