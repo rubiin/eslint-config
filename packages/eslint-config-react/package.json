@@ -1,6 +1,6 @@
 {
   "name": "@rubiin/eslint-config-react",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "ESLint config for react with typescript",
   "main": "index.js",
   "files": [
@@ -9,7 +9,12 @@
   "scripts": {
     "lint": "eslint . --config=index.js"
   },
-  "keywords": ["eslint", "eslint-config", "react", "typescript"],
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "react",
+    "typescript"
+  ],
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "MIT",
   "dependencies": {
