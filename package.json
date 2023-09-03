@@ -12,7 +12,6 @@
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "echo 'linting'",
     "release": "bumpp -r && pnpm -r publish --access public"
   }
 }
