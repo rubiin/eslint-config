@@ -1,6 +1,6 @@
 {
   "name": "@rubiin/eslint-config-monorepo",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "private": true,
   "devDependencies": {
     "prettier": "^2.8.8",
