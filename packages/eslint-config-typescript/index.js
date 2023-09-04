@@ -58,7 +58,6 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:deprecation/recommended",
         "plugin:jest/recommended",
-        "plugin:jsdoc/recommended-typescript"
       ],
       plugins: ["jest"],
       rules: {
@@ -83,6 +82,7 @@ module.exports = {
         "plugin:unicorn/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:deprecation/recommended",
+        "plugin:jsdoc/recommended-typescript"
       ],
       rules: {
         // import
