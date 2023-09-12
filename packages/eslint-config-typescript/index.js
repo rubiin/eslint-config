@@ -1,4 +1,4 @@
-import { existsSync } from "fs";
+const { existsSync } = require("fs");
 // Determine whether the project has a tsconfig.json file
 const hasTSConfig = existsSync("tsconfig.json");
 
