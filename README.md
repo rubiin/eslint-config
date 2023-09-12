@@ -14,7 +14,7 @@ Welcome to my ESLint Config Monorepo! 🚀 Here, you'll find meticulously crafte
 
 ### [eslint-config-react](./packages/eslint-config-react)
 
-This package provides a comprehensive ESLint configuration tailored specifically for React projects. It includes a set of rules and plugins that promote best practices, improve code readability, and prevent common pitfalls in React development.
+This `eslint-config-react` package provides a comprehensive ESLint configuration tailored specifically for React projects. It includes a set of rules and plugins that promote best practices, improve code readability, and prevent common pitfalls in React development.
 
 ### [eslint-config-typescript](./packages/eslint-config-typescript)
 
@@ -35,10 +35,12 @@ yarn add <package-name> -D
 2. Update your project's `.eslintrc.js` file to extend our configuration:
 
 ```javascript
+
 module.exports = {
-  extends: ["@eslint-config-react"],
+  extends: ["@rubiin/eslint-config-typescript"],
   // Your other ESLint settings...
-};
+}
+
 ```
 
 ## License

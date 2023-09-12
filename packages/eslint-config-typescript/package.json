@@ -13,9 +13,11 @@
   "keywords": [
     "eslint",
     "typescript",
+    "react",
     "eslint-config",
     "eslint-plugin",
-    "eslint-config-typescript"
+    "eslint-config-typescript",
+    "eslint-config-react"
   ],
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "MIT",
