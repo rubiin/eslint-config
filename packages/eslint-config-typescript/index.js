@@ -54,7 +54,7 @@ export const overrides = [
       "plugin:import/recommended",
       "plugin:import/typescript",
       "plugin:unicorn/recommended",
-      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-type-checked",
       "plugin:deprecation/recommended",
       "plugin:jest/recommended",
     ],
