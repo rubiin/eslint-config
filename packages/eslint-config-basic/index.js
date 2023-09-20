@@ -13,7 +13,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:unicorn/recommended",
   ],
-  plugins: ["@stylistic/js"],
+  plugins: ["@stylistic/js", "unused-imports"],
   ignorePatterns: [
     "*.min.*",
     "*.d.ts",
