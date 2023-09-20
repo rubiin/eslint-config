@@ -18,7 +18,7 @@
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@rubiin/eslint-config-typescript": "*",
+    "@rubiin/eslint-config-ts": "*",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0"
   },

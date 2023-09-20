@@ -1,0 +1,30 @@
+{
+  "name": "@rubiin/eslint-config-basic",
+  "version": "1.4.0",
+  "description": "ESLint config for Javascript projects",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "standard.js"
+  ],
+  "scripts": {
+    "lint": "eslint . --config=index.js"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
+    "eslint": "^8.48.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-deprecation": "^1.5.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "eslint-plugin-jsdoc": "^46.5.1",
+    "@stylistic/eslint-plugin-js": "0.0.3"
+  }
+}
