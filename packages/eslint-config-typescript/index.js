@@ -6,7 +6,7 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["@stylistic/ts"],
   extends: [
-    "plugin:@rubiin/eslint-config-basic",
+    "@rubiin/eslint-config-basic",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsdoc/recommended-typescript",
