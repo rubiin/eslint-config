@@ -1,6 +1,6 @@
 {
   "name": "@rubiin/eslint-config-basic",
-  "version": "1.4.6",
+  "version": "1.5.0",
   "description": "ESLint config for Javascript projects",
   "main": "index.js",
   "files": [
