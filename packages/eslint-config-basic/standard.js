@@ -178,7 +178,7 @@ module.exports = {
     "prefer-regex-literals": ["error", { disallowRedundantWrapping: true }],
     "quote-props": ["error", "as-needed"],
     quotes: ["error", "double", { avoidEscape: true, allowTemplateLiterals: false }],
-    semi: ["error", "never"],
+    semi: "error",
     "symbol-description": "error",
     "unicode-bom": ["error", "never"],
     "use-isnan": ["error", { enforceForSwitchCase: true, enforceForIndexOf: true }],

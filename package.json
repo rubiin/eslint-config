@@ -3,11 +3,11 @@
   "version": "1.5.0",
   "private": true,
   "devDependencies": {
-    "prettier": "^2.8.8",
     "bumpp": "^9.2.0",
     "eslint": "^8.49.0",
     "nx": "16.8.1",
-    "nx-cloud": "latest"
+    "nx-cloud": "latest",
+    "prettier": "^2.8.8"
   },
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "MIT",

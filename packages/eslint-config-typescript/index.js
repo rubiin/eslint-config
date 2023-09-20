@@ -98,7 +98,7 @@ module.exports = {
     "no-loss-of-precision": "off",
     "@typescript-eslint/no-loss-of-precision": "error",
     semi: "off",
-    "@typescript-eslint/semi": ["error", "never"],
+    "@typescript-eslint/semi": "error",
     quotes: "off",
     "@typescript-eslint/quotes": ["error", "double"],
     "no-extra-parens": "off",

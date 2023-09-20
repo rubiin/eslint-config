@@ -65,7 +65,7 @@ module.exports = {
     "import/named": "off",
 
     // Common
-    semi: ["error", "never"],
+    semi: "error",
     curly: ["error", "multi-or-nest", "consistent"],
     quotes: ["error", "double"],
     "quote-props": ["error", "consistent-as-needed"],
