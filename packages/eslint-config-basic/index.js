@@ -7,11 +7,11 @@ module.exports = {
   reportUnusedDisableDirectives: true,
   extends: [
     "./standard",
-    "plugin:import/recommended",
-    "plugin:unicorn/recommended",
     "plugin:deprecation/recommended",
     "plugin:jest/recommended",
     "plugin:jsdoc/recommended",
+    "plugin:import/recommended",
+    "plugin:unicorn/recommended",
   ],
   plugins: ["@stylistic/js"],
   ignorePatterns: [
