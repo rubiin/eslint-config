@@ -3,6 +3,7 @@ import type { FlatESLintConfigItem } from "eslint-define-config"
 import { isPackageExists } from "local-pkg"
 import {
   comments,
+  deprecation,
   ignores,
   imports,
   javascript,
@@ -17,6 +18,9 @@ import {
 import type { OptionsConfig } from "./types"
 import { combine } from "./utils"
 import { react } from "./configs"
+import gitignore from 'eslint-config-flat-gitignore'
+import fs from 'node:fs'
+import { jsdoc } from "dist"
 
 const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
   'files',
@@ -38,15 +42,33 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
   const enableReact = options.react ?? (isPackageExists('react') || isPackageExists('next') || isPackageExists('remix') || isPackageExists('nextra'))
   const enableTypeScript = options.typescript ?? (isPackageExists("typescript"))
   const enableStylistic = options.stylistic ?? true
+  const enableGitignore = options.gitignore ?? true
 
-  const configs = [
+
+  const configs: FlatESLintConfigItem[][] = []
+
+  if (enableGitignore) {
+    if (typeof enableGitignore !== 'boolean') {
+      configs.push([gitignore(enableGitignore)])
+    }
+    else {
+      if (fs.existsSync('.gitignore'))
+        configs.push([gitignore()])
+    }
+  }
+
+
+  // Base configs
+  configs.push(
     ignores,
     javascript({ isInEditor }),
     comments,
     node,
     imports,
+    deprecation,
+    jsdoc,
     unicorn,
-  ]
+  )
 
   // In the future we may support more component extensions like Svelte or so
   const componentExts: string[] = []

@@ -1,3 +1,5 @@
+import { FlatGitignoreOptions } from "eslint-config-flat-gitignore"
+
 export interface OptionsComponentExts {
   /**
    * Additional extensions for components.
@@ -44,6 +46,15 @@ export interface OptionsConfig {
    * @default auto-detect based on the dependencies
    */
   react?: boolean
+
+    /**
+   * Enable gitignore support.
+   *
+   * Passing an object to configure the options.
+   *
+   * @default true
+   */
+    gitignore?: boolean | FlatGitignoreOptions
 
   /**
    * Enable stylistic rules.
