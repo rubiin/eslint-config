@@ -4,7 +4,7 @@
   "version": "1.6.2",
   "packageManager": "pnpm@8.7.6",
   "description": "My ESLint config",
-  "author": "(https://github.com/rubiin/)",
+  "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/rubiin",
   "homepage": "https://github.com/rubiin/eslint-config",

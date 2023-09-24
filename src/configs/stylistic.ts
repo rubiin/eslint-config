@@ -15,7 +15,7 @@ export const javascriptStylistic: FlatESLintConfigItem[] = [
       "comma-dangle": ["error", "always-multiline"],
       "curly": ["error", "multi-or-nest", "consistent"],
       "quotes": ["error", "double"],
-      "semi": ["error", "never"],
+      "semi": ["error", "always"],
 
       "style/array-bracket-spacing": ["error", "never"],
       "style/arrow-spacing": ["error", { after: true, before: true }],
@@ -123,7 +123,7 @@ export const typescriptStylistic: FlatESLintConfigItem[] = [
 
       "ts/comma-dangle": ["error", "always-multiline"],
       "ts/quotes": ["error", "double"],
-      "ts/semi": ["error", "never"],
+      "ts/semi": ["error", "always"],
     },
   },
 ]
