@@ -14,13 +14,13 @@ import {
   typescriptStylistic,
   typescriptWithLanguageServer,
   unicorn,
+  jsdoc,
 } from "./configs"
 import type { OptionsConfig } from "./types"
 import { combine } from "./utils"
 import { react } from "./configs"
 import gitignore from 'eslint-config-flat-gitignore'
 import fs from 'node:fs'
-import { jsdoc } from "dist"
 
 const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
   'files',
