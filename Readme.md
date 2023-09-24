@@ -1,8 +1,8 @@
 # @rubiin/eslint-config [![npm](https://img.shields.io/npm/v/@rubiin/eslint-config.svg)](https://npmjs.com/package/@rubiin/eslint-config)
 
-Flat ESLint config for JavaScript, TypeScript, Vue 2, Vue 3, Prettier.
+Flat ESLint config for JavaScript, TypeScript, React.
 
-[Legacy Version](https://github.com/rubiin/eslint-config-legacy)
+[Legacy Version](https://github.com/rubiin/eslint-config/tree/da354907ff785d03000b4ce74e75adc50143a592)
 
 ## Features
 
@@ -58,14 +58,6 @@ Most of the rules are the same, but there are some differences:
 - Doesn't add formatting for json, md
 - More stricter rules.
 
-## Sponsors
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/rubiin/sponsors/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/rubiin/sponsors/sponsors.svg'/>
-  </a>
-</p>
-
 ## License
 
-[MIT](./LICENSE) License © 2021-PRESENT [三咲智子](https://github.com/rubiin)
+[MIT](./LICENSE) License © 2021-PRESENT [rubiin](https://github.com/rubiin)
