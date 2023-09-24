@@ -1,17 +1,13 @@
 import stylisticMigrate from "@stylistic/eslint-plugin-migrate"
 import sortKeys from "eslint-plugin-sort-keys"
-import antfu from "@antfu/eslint-config"
+import rubiin from "./src/factory.ts"
 
-export default antfu(
+export default rubiin(
   undefined,
   {
-    ignores: [
-      "fixtures",
-      "_fixtures",
-    ],
   },
   {
-    files: ["**/eslint-config/src/**/*.ts"],
+    files: ['src/**/*.ts'],
     plugins: {
       "@stylistic/migrate": stylisticMigrate,
       "sort-keys": sortKeys,
