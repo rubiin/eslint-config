@@ -4,8 +4,7 @@
 export { default as pluginComments } from "eslint-plugin-eslint-comments"
 export { default as pluginImport } from "eslint-plugin-i"
 export { default as pluginNode } from "eslint-plugin-n"
-export { default as pluginStylisticJs } from "@stylistic/eslint-plugin-js"
-export { default as pluginStylisticTs } from "@stylistic/eslint-plugin-ts"
+export { default as pluginStylistic } from '@stylistic/eslint-plugin'
 export { default as pluginTs } from "@typescript-eslint/eslint-plugin"
 export { default as pluginJsdoc } from 'eslint-plugin-jsdoc'
 export { default as pluginDeprecation } from "eslint-plugin-deprecation"

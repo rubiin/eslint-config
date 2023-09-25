@@ -1,4 +1,4 @@
-import type { FlatESLintConfigItem } from "eslint-define-config"
+import type { FlatESLintConfigItem } from 'eslint-define-config'
 
 /**
  * Combine array and non-array configs into a single array.
@@ -18,5 +18,12 @@ export function renameRules(rules: Record<string, any>, from: string, to: string
   )
 }
 
+const rulesOn = new Set<string>()
+const rulesOff = new Set<string>()
 
+export function warnUnnecessaryOffRules() {
+  const unnecessaryOffRules = [...rulesOff].filter(key => !rulesOn.has(key))
 
+  for (const off of unnecessaryOffRules)
+    console.warn(`[eslint] rule \`${off}\` is never turned on, you can remove the rule from your config`)
+}

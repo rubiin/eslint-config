@@ -7,11 +7,10 @@ import {
   ignores,
   imports,
   javascript,
-  javascriptStylistic,
   node,
   test,
   typescript,
-  typescriptStylistic,
+  stylistic,
   typescriptWithLanguageServer,
   unicorn,
   jsdoc,
@@ -77,7 +76,7 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
   componentExts.push('react')
 
   if (enableStylistic)
-    configs.push(javascriptStylistic)
+    configs.push(stylistic)
 
   if (enableTypeScript) {
     configs.push(typescript({ componentExts }))
@@ -88,9 +87,6 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
         componentExts,
       }))
     }
-
-    if (enableStylistic)
-      configs.push(typescriptStylistic)
   }
 
   if (options.test ?? true)
@@ -111,8 +107,14 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     configs.push([fusedConfig])
 
 
-  return combine(
-    ...configs,
-    ...userConfigs,
-  )
+    const merged = combine(
+      ...configs,
+      ...userConfigs,
+    )
+
+
+  // recordRulesStateConfigs(merged)
+  // warnUnnecessaryOffRules()
+
+  return merged
 }
