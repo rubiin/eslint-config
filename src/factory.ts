@@ -14,6 +14,11 @@ import {
   typescriptWithLanguageServer,
   unicorn,
   jsdoc,
+  jsonc,
+  sortPackageJson,
+  sortTsconfig,
+  markdown,
+  yml,
 } from "./configs"
 import type { OptionsConfig } from "./types"
 import { combine } from "./utils"
@@ -93,6 +98,21 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
 
     if (enableReact)
     configs.push(react({ typescript: !!enableTypeScript }))
+
+
+    if (options.jsonc ?? true) {
+      configs.push(
+        jsonc,
+        sortPackageJson,
+        sortTsconfig,
+      )
+    }
+
+    if (options.yaml ?? true)
+      configs.push(yml)
+
+    if (options.markdown ?? true)
+      configs.push(markdown({ componentExts }))
 
 
   // User can optionally pass a flat config item to the first argument

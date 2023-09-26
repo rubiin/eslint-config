@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.7.5",
   "packageManager": "pnpm@8.7.6",
-  "description": "My ESLint config",
+  "description": "Rubin's ESLint config",
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/rubiin",
@@ -52,8 +52,14 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unicorn": "^48.0.1",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "eslint-plugin-jsonc": "^2.9.0",
+    "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-vue": "^9.17.0",
+    "eslint-plugin-yml": "^1.9.0",
     "globals": "^13.22.0",
-    "local-pkg": "^0.4.3"
+    "jsonc-eslint-parser": "^2.3.0",
+    "local-pkg": "^0.4.3",
+    "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "^20.7.0",

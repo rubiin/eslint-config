@@ -40,6 +40,27 @@ export interface OptionsConfig {
    */
   test?: boolean
 
+    /**
+   * Enable JSONC support.
+   *
+   * @default true
+   */
+    jsonc?: boolean
+
+    /**
+     * Enable YAML support.
+     *
+     * @default true
+     */
+    yaml?: boolean
+
+    /**
+     * Enable Markdown support.
+     *
+     * @default true
+     */
+    markdown?: boolean
+
   /**
    * Enable react support.
    *
