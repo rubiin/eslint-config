@@ -14,12 +14,6 @@ export const GLOB_SCSS = "**/*.scss"
 
 export const GLOB_JSON = "**/*.json"
 
-export const GLOB_MARKDOWN = "**/*.md"
-export const GLOB_YAML = "**/*.y?(a)ml"
-export const GLOB_HTML = "**/*.htm?(l)"
-
-export const GLOB_MARKDOWN_CODE = `${GLOB_MARKDOWN}/${GLOB_SRC}`
-
 export const GLOB_TESTS = [
   `**/__tests__/**/*.${GLOB_SRC_EXT}`,
   `**/*.spec.${GLOB_SRC_EXT}`,

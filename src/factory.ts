@@ -32,7 +32,6 @@ const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
   'settings',
 ]
 
-
 /**
  * Construct an array of ESLint flat config items.
  */
@@ -111,10 +110,6 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
       ...configs,
       ...userConfigs,
     )
-
-
-  // recordRulesStateConfigs(merged)
-  // warnUnnecessaryOffRules()
 
   return merged
 }
