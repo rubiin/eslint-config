@@ -9,8 +9,7 @@ export const stylistic: FlatESLintConfigItem[] = [
     rules: {
 
       "quotes": ["error", "double"],
-      "semi": ["error", "always"],
-      
+
       'curly': ['error', 'multi-or-nest', 'consistent'],
 
       'style/array-bracket-spacing': ['error', 'never'],
@@ -75,9 +74,9 @@ export const stylistic: FlatESLintConfigItem[] = [
       'style/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }],
       'style/operator-linebreak': ['error', 'before'],
       'style/padded-blocks': ['error', { blocks: 'never', classes: 'never', switches: 'never' }],
-      'style/quotes': ['error', 'single'],
+      'style/quotes': ['error', 'double'],
       'style/rest-spread-spacing': ['error', 'never'],
-      'style/semi': ['error', 'never'],
+      'style/semi': ['error', 'always'],
       'style/semi-spacing': ['error', { after: true, before: false }],
       'style/space-before-blocks': ['error', 'always'],
       'style/space-before-function-paren': ['error', { anonymous: 'always', asyncArrow: 'always', named: 'never' }],
