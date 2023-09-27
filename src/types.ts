@@ -24,6 +24,10 @@ export interface OptionsHasTypeScript {
   typescript?: boolean
 }
 
+export interface OptionsStylistic {
+  stylistic?: boolean
+}
+
 export interface OptionsIsInEditor {
   isInEditor?: boolean
 }
@@ -102,7 +106,7 @@ export interface OptionsConfig {
   overrides?: {
     typescript?: FlatESLintConfigItem['rules']
     typescriptWithTypes?: FlatESLintConfigItem['rules']
-
+    yaml?: FlatESLintConfigItem['rules']
     test?: FlatESLintConfigItem['rules']
     react?: FlatESLintConfigItem['rules']
     jsonc?: FlatESLintConfigItem['rules']

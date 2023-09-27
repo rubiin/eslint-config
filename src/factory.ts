@@ -79,9 +79,13 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     javascript({ isInEditor }),
     comments(),
     node(),
-    imports(),
+    jsdoc({
+      stylistic: enableStylistic,
+    }),
+    imports({
+      stylistic: enableStylistic,
+    }),
     deprecation(),
-    jsdoc(),
     unicorn(),
   )
 
@@ -119,20 +123,29 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     if (enableReact)
     configs.push(react({
       overrides: overrides.react,
+      stylistic: enableStylistic,
       typescript: !!enableTypeScript,
     }))
 
 
     if (options.jsonc ?? true) {
       configs.push(
-        jsonc(),
+        jsonc(
+          {
+            overrides: overrides.jsonc,
+            stylistic: enableStylistic,
+          }
+        ),
         sortPackageJson(),
         sortTsconfig(),
       )
     }
 
     if (options.yaml ?? true)
-      configs.push(yaml)
+    configs.push(yaml({
+      overrides: overrides.yaml,
+      stylistic: enableStylistic,
+    }))
 
       if (options.markdown ?? true) {
         configs.push(markdown({

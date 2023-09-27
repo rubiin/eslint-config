@@ -2,12 +2,16 @@ import type { FlatESLintConfigItem } from 'eslint-define-config'
 import { GLOB_JSX,GLOB_TSX } from '../globs'
 import { parserTs, pluginReact, pluginReactHooks } from '../plugins'
 import { OFF } from '../flags'
-import type { OptionsHasTypeScript, OptionsOverrides } from '../types'
+import type { OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from '../types'
 
-export function react(options: OptionsHasTypeScript & OptionsOverrides = {}): FlatESLintConfigItem[] {
+export function react(
+  options: OptionsHasTypeScript & OptionsOverrides & OptionsStylistic = {},
+): FlatESLintConfigItem[] {
   const {
-    overrides = {}
+    overrides = {},
+    stylistic = true,
   } = options
+
   return [
     {
       plugins: {
@@ -29,7 +33,13 @@ export function react(options: OptionsHasTypeScript & OptionsOverrides = {}): Fl
         ...pluginReactHooks.configs.recommended.rules,
         "jsx-quotes": ["error", "prefer-double"],
         "react/react-in-jsx-scope": OFF,
-        ...overrides,
+        ...stylistic
+        ? {
+          // add react style rules here
+          }
+        : {},
+
+      ...overrides,
       },
     },
   ]

@@ -1,7 +1,12 @@
 import type { FlatESLintConfigItem } from 'eslint-define-config'
 import { pluginJsdoc } from '../plugins'
+import type { OptionsStylistic } from '../types'
 
-export function jsdoc(): FlatESLintConfigItem[] {
+export function jsdoc(options: OptionsStylistic = {}): FlatESLintConfigItem[] {
+  const {
+    stylistic = true,
+  } = options
+
   return [
     {
       plugins: {
@@ -18,7 +23,6 @@ export function jsdoc(): FlatESLintConfigItem[] {
         'jsdoc/multiline-blocks': 'warn',
         'jsdoc/no-defaults': 'warn',
         'jsdoc/no-multi-asterisks': 'warn',
-        'jsdoc/no-types': 'warn',
         'jsdoc/require-param-name': 'warn',
         'jsdoc/require-property': 'warn',
         'jsdoc/require-property-description': 'warn',
@@ -27,6 +31,12 @@ export function jsdoc(): FlatESLintConfigItem[] {
         'jsdoc/require-returns-description': 'warn',
         'jsdoc/require-yields-check': 'warn',
         'jsdoc/valid-types': 'warn',
+        ...stylistic
+        ? {
+            'jsdoc/check-alignment': 'warn',
+            'jsdoc/multiline-blocks': 'warn',
+          }
+        : {},
       },
     },
   ]

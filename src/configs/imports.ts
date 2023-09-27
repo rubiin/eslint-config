@@ -1,7 +1,11 @@
 import type { FlatESLintConfigItem } from "eslint-define-config"
 import { pluginImport } from "../plugins"
+import { OptionsStylistic } from "../types"
 
-export function imports(): FlatESLintConfigItem[] {
+export function imports(options: OptionsStylistic = {}): FlatESLintConfigItem[] {
+  const {
+    stylistic = true,
+  } = options
   return [
   {
     plugins: {
@@ -17,6 +21,11 @@ export function imports(): FlatESLintConfigItem[] {
       "import/no-self-import": "error",
       "import/no-webpack-loader-syntax": "error",
       "import/order": "error",
+      ...stylistic
+      ? {
+          'import/newline-after-import': ['error', { considerComments: true, count: 1 }],
+        }
+      : {},
     },
   },
 ]
