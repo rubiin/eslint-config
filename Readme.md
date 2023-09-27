@@ -24,21 +24,24 @@ Require Node.js >= 16.14.
 
 ```js
 // eslint.config.js
-import { all } from '@rubiin/eslint-config'
+import rubiin from '@antfu/eslint-config'
 
-export default all
+export default rubiin()
 ```
 
 ### Custom Config
 
 ```js
-import { rubiin } from '@rubiin/eslint-config'
-export default rubiin(
-  [
-    /* your custom config */
-  ],
-  { react: true, typescript: true, imports: true, unicorn: false }
-)
+// eslint.config.js
+import rubiin from '@antfu/eslint-config'
+
+export default rubiin({
+  stylistic: true, // enable stylistic formatting rules
+  typescript: true,
+  react: true,
+  jsonc: false,
+  yaml: false,
+})
 ```
 
 ### VSCode
