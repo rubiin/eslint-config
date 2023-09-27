@@ -1,13 +1,15 @@
 import type { FlatESLintConfigItem } from "eslint-define-config"
 import { pluginDeprecation } from "../plugins"
 
-export const deprecation: FlatESLintConfigItem[] = [
-  {
-    plugins: {
-      deprecation: pluginDeprecation,
+export function deprecation(): FlatESLintConfigItem[] {
+  return [
+    {
+      plugins: {
+        deprecation: pluginDeprecation,
+      },
+      rules: {
+         'deprecation/deprecation': 'error'
+      },
     },
-    rules: {
-       'deprecation/deprecation': 'error'
-    },
-  },
-]
+  ]
+}

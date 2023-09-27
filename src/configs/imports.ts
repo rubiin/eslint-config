@@ -1,7 +1,8 @@
 import type { FlatESLintConfigItem } from "eslint-define-config"
 import { pluginImport } from "../plugins"
 
-export const imports: FlatESLintConfigItem[] = [
+export function imports(): FlatESLintConfigItem[] {
+  return [
   {
     plugins: {
       import: pluginImport,
@@ -19,3 +20,4 @@ export const imports: FlatESLintConfigItem[] = [
     },
   },
 ]
+}

@@ -1,8 +1,8 @@
 import type { FlatESLintConfigItem } from "eslint-define-config"
-import { OFF } from "../flags"
 import { pluginComments } from "../plugins"
 
-export const comments: FlatESLintConfigItem[] = [
+export function comments(): FlatESLintConfigItem[] {
+  return [
   {
     plugins: {
       "eslint-comments": pluginComments,
@@ -15,3 +15,4 @@ export const comments: FlatESLintConfigItem[] = [
     },
   },
 ]
+}

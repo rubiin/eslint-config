@@ -8,6 +8,9 @@ import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 export function javascript(options: OptionsIsInEditor = {}): FlatESLintConfigItem[] {
   return [
     {
+      plugins: {
+        "unused-imports": pluginUnusedImports,
+      },
       languageOptions: {
         ecmaVersion: 2022,
         globals: {
@@ -26,9 +29,6 @@ export function javascript(options: OptionsIsInEditor = {}): FlatESLintConfigIte
           sourceType: "module",
         },
         sourceType: "module",
-      },
-      plugins: {
-        "unused-imports": pluginUnusedImports,
       },
       rules: {
         "accessor-pairs": ["error", { enforceForClassMembers: true, setWithoutGet: true }],

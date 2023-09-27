@@ -2,7 +2,8 @@ import type { FlatESLintConfigItem } from "eslint-define-config"
 import { pluginNode } from "../plugins"
 import { OFF } from "../flags"
 
-export const node: FlatESLintConfigItem[] = [
+export function node(): FlatESLintConfigItem[] {
+  return [
   {
     plugins: {
       node: pluginNode,
@@ -19,3 +20,4 @@ export const node: FlatESLintConfigItem[] = [
     },
   },
 ]
+}

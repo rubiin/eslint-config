@@ -15,4 +15,4 @@ export * from "./stylistic";
 export * from "./test";
 export * from "./typescript";
 export * from "./unicorn";
-export * from "./yml";
+export * from "./yaml";

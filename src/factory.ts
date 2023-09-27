@@ -11,14 +11,14 @@ import {
   test,
   typescript,
   stylistic,
-  typescriptWithLanguageServer,
+  typescriptWithTypes,
   unicorn,
   jsdoc,
   jsonc,
   sortPackageJson,
   sortTsconfig,
   markdown,
-  yml,
+  yaml,
 } from "./configs"
 import type { OptionsConfig } from "./types"
 import { combine } from "./utils"
@@ -37,15 +37,27 @@ const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
   'settings',
 ]
 
+const ReactPackages = [
+  'react',
+  'next',
+  'gatsby',
+  'nextra',
+  'remix',
+]
+
 /**
  * Construct an array of ESLint flat config items.
  */
 export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]) {
-  const isInEditor = options.isInEditor ?? !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI)
-  const enableReact = options.react ?? (isPackageExists('react') || isPackageExists('next') || isPackageExists('remix') || isPackageExists('nextra'))
-  const enableTypeScript = options.typescript ?? (isPackageExists("typescript"))
-  const enableStylistic = options.stylistic ?? true
-  const enableGitignore = options.gitignore ?? true
+
+  const {
+    isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI),
+    react: enableReact = ReactPackages.some(i => isPackageExists(i)),
+    typescript: enableTypeScript = isPackageExists('typescript'),
+    stylistic: enableStylistic = true,
+    gitignore: enableGitignore = true,
+    overrides = {},
+  } = options
 
 
   const configs: FlatESLintConfigItem[][] = []
@@ -63,14 +75,14 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
 
   // Base configs
   configs.push(
-    ignores,
+    ignores(),
     javascript({ isInEditor }),
-    comments,
-    node,
-    imports,
-    deprecation,
-    jsdoc,
-    unicorn,
+    comments(),
+    node(),
+    imports(),
+    deprecation(),
+    jsdoc(),
+    unicorn(),
   )
 
   // In the future we may support more component extensions like Svelte or so
@@ -80,39 +92,54 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
   componentExts.push('react')
 
   if (enableStylistic)
-    configs.push(stylistic)
+    configs.push(stylistic())
 
   if (enableTypeScript) {
-    configs.push(typescript({ componentExts }))
+    configs.push(typescript({
+      componentExts,
+      overrides: overrides.typescript,
+    }))
 
     if (typeof enableTypeScript !== "boolean") {
-      configs.push(typescriptWithLanguageServer({
+      configs.push(typescriptWithTypes({
         ...enableTypeScript,
         componentExts,
+        overrides: overrides.typescriptWithTypes,
       }))
     }
   }
 
-  if (options.test ?? true)
-    configs.push(test({ isInEditor }))
+  if (options.test ?? true) {
+    configs.push(test({
+      isInEditor,
+      overrides: overrides.test,
+    }))
+  }
 
     if (enableReact)
-    configs.push(react({ typescript: !!enableTypeScript }))
+    configs.push(react({
+      overrides: overrides.react,
+      typescript: !!enableTypeScript,
+    }))
 
 
     if (options.jsonc ?? true) {
       configs.push(
-        jsonc,
-        sortPackageJson,
-        sortTsconfig,
+        jsonc(),
+        sortPackageJson(),
+        sortTsconfig(),
       )
     }
 
     if (options.yaml ?? true)
-      configs.push(yml)
+      configs.push(yaml)
 
-    if (options.markdown ?? true)
-      configs.push(markdown({ componentExts }))
+      if (options.markdown ?? true) {
+        configs.push(markdown({
+          componentExts,
+          overrides: overrides.markdown,
+        }))
+      }
 
 
   // User can optionally pass a flat config item to the first argument
