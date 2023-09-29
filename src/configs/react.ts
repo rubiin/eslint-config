@@ -1,8 +1,7 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
-import { GLOB_JSX,GLOB_TSX } from '../globs'
+import type { FlatESLintConfigItem, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from '../types'
+import { GLOB_JSX, GLOB_TSX, GLOB_VUE } from '../globs'
 import { parserTs, pluginReact, pluginReactHooks } from '../plugins'
 import { OFF } from '../flags'
-import type { OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from '../types'
 
 export function react(
   options: OptionsHasTypeScript & OptionsOverrides & OptionsStylistic = {},
@@ -14,10 +13,13 @@ export function react(
 
   return [
     {
+      name: 'rubiin:vue:setup',
       plugins: {
         react: pluginReact,
         'react-hooks': pluginReactHooks
       },
+    },
+    {
       files: [GLOB_JSX,GLOB_TSX],
       languageOptions: {
         parserOptions: {
@@ -28,6 +30,7 @@ export function react(
           sourceType: 'module',
         },
       },
+      name: 'rubiin:react:rules',
       rules: {
         ...pluginReact.configs.recommended.rules,
         ...pluginReactHooks.configs.recommended.rules,

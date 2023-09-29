@@ -16,6 +16,7 @@ export { default as pluginUnusedImports } from "eslint-plugin-unused-imports"
 export { default as pluginYaml } from 'eslint-plugin-yml'
 export { default as pluginJsonc } from 'eslint-plugin-jsonc'
 export { default as pluginMarkdown } from 'eslint-plugin-markdown'
+export { default as pluginVitest } from 'eslint-plugin-vitest'
 
 export { default as parserTs } from '@typescript-eslint/parser'
 export { default as parserYaml } from 'yaml-eslint-parser'
