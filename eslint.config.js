@@ -1,12 +1,18 @@
-import sortKeys from "eslint-plugin-sort-keys"
-import rubiin from "./src/factory.ts"
+import sortKeys from "eslint-plugin-sort-keys";
+import rubiin from "./dist/index.js";
 
 export default rubiin(
-  undefined,
   {
+    ignores: [
+      "fixtures",
+      "_fixtures",
+    ],
+    // typescript: {
+    //   tsconfigPath: 'tsconfig.json',
+    // },
   },
   {
-    files: ['src/**/*.ts'],
+    files: ["src/**/*.ts"],
     plugins: {
       "sort-keys": sortKeys,
     },
@@ -14,4 +20,4 @@ export default rubiin(
       "sort-keys/sort-keys-fix": "error",
     },
   },
-)
+);

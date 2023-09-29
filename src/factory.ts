@@ -1,8 +1,7 @@
-import process from 'node:process'
-import fs from 'node:fs'
-import { isPackageExists } from 'local-pkg'
-import gitignore from 'eslint-config-flat-gitignore'
-import type { FlatESLintConfigItem, OptionsConfig } from './types'
+import fs from "node:fs";
+import process from "node:process";
+import gitignore from "eslint-config-flat-gitignore";
+import { isPackageExists } from "local-pkg";
 import {
   comments,
   ignores,
@@ -12,32 +11,32 @@ import {
   jsonc,
   markdown,
   node,
+  react,
   sortPackageJson,
   sortTsconfig,
   stylistic,
   test,
   typescript,
   unicorn,
-  react,
   yaml,
-  deprecation,
-} from './configs'
-import { combine } from './utils'
+} from "./configs";
+import type { FlatESLintConfigItem, OptionsConfig } from "./types";
+import { combine } from "./utils";
 
 const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
-  'files',
-  'ignores',
-  'languageOptions',
-  'linterOptions',
-  'processor',
-  'plugins',
-  'rules',
-  'settings',
-]
+  "files",
+  "ignores",
+  "languageOptions",
+  "linterOptions",
+  "processor",
+  "plugins",
+  "rules",
+  "settings",
+];
 
 const ReactPackages = [
-  'react','next','remix','gatsby'
-]
+  "react", "next", "remix", "gatsby",
+];
 
 /**
  * Construct an array of ESLint flat config items.
@@ -46,29 +45,28 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
   const {
     isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI),
     react: enableReact = ReactPackages.some(i => isPackageExists(i)),
-    typescript: enableTypeScript = isPackageExists('typescript'),
+    typescript: enableTypeScript = isPackageExists("typescript"),
     stylistic: enableStylistic = true,
     gitignore: enableGitignore = true,
     overrides = {},
     componentExts = [],
-  } = options
+  } = options;
 
-  const configs: FlatESLintConfigItem[][] = []
+  const configs: FlatESLintConfigItem[][] = [];
 
   if (enableGitignore) {
-    if (typeof enableGitignore !== 'boolean') {
-      configs.push([gitignore(enableGitignore)])
+    if (typeof enableGitignore !== "boolean") {
+      configs.push([gitignore(enableGitignore)]);
     }
     else {
-      if (fs.existsSync('.gitignore'))
-        configs.push([gitignore()])
+      if (fs.existsSync(".gitignore"))
+        configs.push([gitignore()]);
     }
   }
 
   // Base configs
   configs.push(
     ignores(),
-    deprecation(),
     javascript({
       isInEditor,
       overrides: overrides.javascript,
@@ -82,38 +80,38 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
       stylistic: enableStylistic,
     }),
     unicorn(),
-  )
+  );
 
   if (enableReact)
-    componentExts.push('react')
+    componentExts.push("react");
 
   if (enableTypeScript) {
     configs.push(typescript({
-      ...typeof enableTypeScript !== 'boolean'
+      ...typeof enableTypeScript !== "boolean"
         ? enableTypeScript
         : {},
       componentExts,
       overrides: overrides.typescript,
-    }))
+    }));
   }
 
   if (enableStylistic)
-    configs.push(stylistic())
+    configs.push(stylistic());
 
   if (options.test ?? true) {
     configs.push(test({
       isInEditor,
       overrides: overrides.test,
-    }))
+    }));
   }
 
   if (enableReact) {
-      configs.push(react({
-        overrides: overrides.react,
-        stylistic: enableStylistic,
-        typescript: !!enableTypeScript,
-      }))
-    }
+    configs.push(react({
+      overrides: overrides.react,
+      stylistic: enableStylistic,
+      typescript: !!enableTypeScript,
+    }));
+  }
 
   if (options.jsonc ?? true) {
     configs.push(
@@ -123,40 +121,40 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
       }),
       sortPackageJson(),
       sortTsconfig(),
-    )
+    );
   }
 
   if (options.yaml ?? true) {
     configs.push(yaml({
       overrides: overrides.yaml,
       stylistic: enableStylistic,
-    }))
+    }));
   }
 
   if (options.markdown ?? true) {
     configs.push(markdown({
       componentExts,
       overrides: overrides.markdown,
-    }))
+    }));
   }
 
   // User can optionally pass a flat config item to the first argument
   // We pick the known keys as ESLint would do schema validation
   const fusedConfig = flatConfigProps.reduce((acc, key) => {
     if (key in options)
-      acc[key] = options[key] as any
-    return acc
-  }, {} as FlatESLintConfigItem)
+      acc[key] = options[key] as any;
+    return acc;
+  }, {} as FlatESLintConfigItem);
   if (Object.keys(fusedConfig).length)
-    configs.push([fusedConfig])
+    configs.push([fusedConfig]);
 
   const merged = combine(
     ...configs,
     ...userConfigs,
-  )
+  );
 
   // recordRulesStateConfigs(merged)
   // warnUnnecessaryOffRules()
 
-  return merged
+  return merged;
 }

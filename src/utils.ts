@@ -1,10 +1,10 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+import type { FlatESLintConfigItem } from "eslint-define-config";
 
 /**
  * Combine array and non-array configs into a single array.
  */
 export function combine(...configs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]): FlatESLintConfigItem[] {
-  return configs.flatMap(config => Array.isArray(config) ? config : [config])
+  return configs.flatMap(config => Array.isArray(config) ? config : [config]);
 }
 
 /**
@@ -23,22 +23,22 @@ export function renameRules(rules: Record<string, any>, from: string, to: string
     Object.entries(rules)
       .map(([key, value]) => {
         if (key.startsWith(from))
-          return [to + key.slice(from.length), value]
-        return [key, value]
+          return [to + key.slice(from.length), value];
+        return [key, value];
       }),
-  )
+  );
 }
 
-const rulesOn = new Set<string>()
-const rulesOff = new Set<string>()
+const rulesOn = new Set<string>();
+const rulesOff = new Set<string>();
 
 /**
  * The function `warnUnnecessaryOffRules` checks for rules that are turned off but never turned on and
  * logs a warning message for each unnecessary rule.
  */
 export function warnUnnecessaryOffRules() {
-  const unnecessaryOffRules = [...rulesOff].filter(key => !rulesOn.has(key))
+  const unnecessaryOffRules = [...rulesOff].filter(key => !rulesOn.has(key));
 
   for (const off of unnecessaryOffRules)
-    console.warn(`[eslint] rule \`${off}\` is never turned on, you can remove the rule from your config`)
+    console.warn(`[eslint] rule \`${off}\` is never turned on, you can remove the rule from your config`);
 }
