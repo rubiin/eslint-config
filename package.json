@@ -37,6 +37,7 @@
     "eslint": ">=8.0.0"
   },
   "dependencies": {
+    "@arthurgeron/eslint-plugin-react-usememo": "^2.0.1",
     "@stylistic/eslint-plugin": "0.0.5",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",

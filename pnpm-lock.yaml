@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@arthurgeron/eslint-plugin-react-usememo':
+    specifier: ^2.0.1
+    version: 2.0.1
   '@stylistic/eslint-plugin':
     specifier: 0.0.5
     version: 0.0.5(eslint@8.50.0)(typescript@5.2.2)
@@ -112,6 +115,10 @@ packages:
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
+
+  /@arthurgeron/eslint-plugin-react-usememo@2.0.1:
+    resolution: {integrity: sha512-cv1S9f3PBRfysxEpQjHcLlDGVnuQCJNu2tvAaWd4nf9HoXFCK2aSCCHf53ZCXxpHj20lq8PCMHd1tG+Sy2iuuQ==}
+    dev: false
 
   /@babel/code-frame@7.22.13:
     resolution: {integrity: sha512-XktuhWlJ5g+3TJXc5upd9Ks1HutSArik6jf2eAjYFyIOf4ej3RN+184cZbzDvbPnuTJIUhPKKJE3cIsYTiAT3w==}

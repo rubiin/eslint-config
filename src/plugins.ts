@@ -9,6 +9,7 @@ export { default as pluginNode } from "eslint-plugin-n"
 export { default as pluginNoOnlyTests } from "eslint-plugin-no-only-tests"
 export { default as pluginReact } from "eslint-plugin-react"
 export { default as pluginReactHooks } from "eslint-plugin-react-hooks"
+export { default as pluginReactUseMemo } from "@arthurgeron/react-usememo/require-usememo"
 export { default as pluginStylistic } from '@stylistic/eslint-plugin'
 export { default as pluginTs } from "@typescript-eslint/eslint-plugin"
 export { default as pluginUnicorn } from "eslint-plugin-unicorn"
