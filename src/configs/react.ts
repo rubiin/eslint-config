@@ -36,8 +36,8 @@ export function react(
         ...pluginReact.configs.recommended.rules,
         ...pluginReactHooks.configs.recommended.rules,
         "@arthurgeron/react-usememo/require-usememo": [2],
-        "jsx-quotes": ["error", "prefer-double"],
         "react/react-in-jsx-scope": OFF,
+        "style/jsx-quotes": ["error", "prefer-double"],
         ...stylistic
           ? {
               // add react style rules here

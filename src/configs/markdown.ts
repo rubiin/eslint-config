@@ -36,7 +36,6 @@ export function markdown(options: OptionsComponentExts & OptionsOverrides = {}):
       name: "rubiin:markdown:rules",
       rules: {
 
-        "eol-last": OFF,
         "no-alert": OFF,
         "no-console": OFF,
         "no-undef": OFF,
@@ -46,6 +45,7 @@ export function markdown(options: OptionsComponentExts & OptionsOverrides = {}):
         "node/prefer-global/process": OFF,
 
         "style/comma-dangle": OFF,
+        "style/eol-last": OFF,
 
         "ts/consistent-type-imports": OFF,
         "ts/no-namespace": OFF,

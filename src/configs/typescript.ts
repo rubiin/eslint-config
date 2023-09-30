@@ -78,7 +78,6 @@ export function typescript(
         ),
 
         "no-dupe-class-members": OFF,
-        "no-extra-parens": OFF,
         "no-invalid-this": OFF,
         "no-loss-of-precision": OFF,
         "no-redeclare": OFF,
@@ -91,7 +90,6 @@ export function typescript(
         "ts/no-dupe-class-members": "error",
         "ts/no-dynamic-delete": OFF,
         "ts/no-explicit-any": OFF,
-        "ts/no-extra-parens": ["error", "functions"],
         "ts/no-extraneous-class": OFF,
         "ts/no-invalid-this": "error",
         "ts/no-invalid-void-type": OFF,

@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@arthurgeron/eslint-plugin-react-usememo": "^2.0.1",
-    "@stylistic/eslint-plugin": "0.0.5",
+    "@stylistic/eslint-plugin": "0.0.6",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "eslint-config-flat-gitignore": "^0.1.0",
@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@types/eslint": "^8.44.3",
-    "@types/node": "^20.7.1",
+    "@types/node": "^20.8.0",
     "bumpp": "^9.2.0",
     "eslint": "^8.50.0",
     "eslint-plugin-sort-keys": "^2.3.5",
