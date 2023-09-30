@@ -141,7 +141,7 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     }));
   }
 
-  if (options.debug ?? true)
+  if (options.debug ?? false)
     // eslint-disable-next-line no-console
     console.debug("Following configs are being used:", JSON.stringify(configs.map(element => element[0].name), null, 2));
 
