@@ -1,7 +1,7 @@
 import process from "node:process";
 import type { FlatESLintConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes } from "../types";
 import { GLOB_SRC } from "../globs";
-import { parserTs, pluginImport, pluginTs } from "../plugins";
+import { parserTs, pluginAntfu, pluginImport, pluginTs } from "../plugins";
 import { OFF } from "../flags";
 import { renameRules } from "../utils";
 
@@ -42,6 +42,7 @@ export function typescript(
       // Install the plugins without globs, so they can be configured separately.
       name: "rubiin:typescript:setup",
       plugins: {
+        antfu: pluginAntfu,
         import: pluginImport,
         ts: pluginTs as any,
       },
@@ -76,6 +77,12 @@ export function typescript(
           "@typescript-eslint/",
           "ts/",
         ),
+
+        'antfu/generic-spacing': 'error',
+        'antfu/named-tuple-spacing': 'error',
+        'antfu/no-cjs-exports': 'error',
+        'antfu/no-const-enum': 'error',
+        'antfu/no-ts-export-equal': 'error',
 
         "no-dupe-class-members": OFF,
         "no-invalid-this": OFF,

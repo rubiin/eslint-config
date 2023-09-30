@@ -1,6 +1,6 @@
 import globals from "globals";
 import type { FlatESLintConfigItem, OptionsIsInEditor, OptionsOverrides } from "../types";
-import { pluginUnusedImports } from "../plugins";
+import { pluginAntfu, pluginUnusedImports } from "../plugins";
 import { OFF } from "../flags";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 
@@ -33,6 +33,7 @@ export function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): 
       },
       name: "rubiin:javascript",
       plugins: {
+        'antfu': pluginAntfu,
         "unused-imports": pluginUnusedImports,
       },
       rules: {
