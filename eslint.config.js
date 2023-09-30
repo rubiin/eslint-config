@@ -4,6 +4,8 @@ import rubiin from "./dist/index.js";
 
 export default rubiin(
   {
+    react: true,
+    typescript: true,
     // typescript: {
     //   tsconfigPath: 'tsconfig.json',
     // },
