@@ -35,7 +35,10 @@ const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
 ];
 
 const ReactPackages = [
-  "react", "next", "remix", "gatsby",
+  "react",
+  "next",
+  "remix",
+  "gatsby",
 ];
 
 /**
@@ -138,10 +141,9 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     }));
   }
 
-  if(options.debug ?? true)
+  if (options.debug ?? true)
     // eslint-disable-next-line no-console
-    console.debug("Following configs are being used:", JSON.stringify(configs, null, 2));
-
+    console.debug("Following configs are being used:", JSON.stringify(configs.map(element => element[0].name), null, 2));
 
   // User can optionally pass a flat config item to the first argument
   // We pick the known keys as ESLint would do schema validation

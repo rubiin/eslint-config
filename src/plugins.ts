@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 export { default as pluginComments } from "eslint-plugin-eslint-comments";
-export { default as pluginAntfu } from 'eslint-plugin-antfu'
+export { default as pluginAntfu } from "eslint-plugin-antfu";
 export { default as pluginJsdoc } from "eslint-plugin-jsdoc";
 export { default as pluginImport } from "eslint-plugin-i";
 export { default as pluginNode } from "eslint-plugin-n";

@@ -78,11 +78,11 @@ export function typescript(
           "ts/",
         ),
 
-        'antfu/generic-spacing': 'error',
-        'antfu/named-tuple-spacing': 'error',
-        'antfu/no-cjs-exports': 'error',
-        'antfu/no-const-enum': 'error',
-        'antfu/no-ts-export-equal': 'error',
+        "antfu/generic-spacing": "error",
+        "antfu/named-tuple-spacing": "error",
+        "antfu/no-cjs-exports": "error",
+        "antfu/no-const-enum": "error",
+        "antfu/no-ts-export-equal": "error",
 
         "no-dupe-class-members": OFF,
         "no-invalid-this": OFF,

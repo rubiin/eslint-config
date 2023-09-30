@@ -35,6 +35,8 @@ export function markdown(options: OptionsComponentExts & OptionsOverrides = {}):
       },
       name: "rubiin:markdown:rules",
       rules: {
+        "antfu/no-cjs-exports": OFF,
+        "antfu/no-ts-export-equal": OFF,
 
         "no-alert": OFF,
         "no-console": OFF,

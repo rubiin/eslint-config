@@ -1,5 +1,5 @@
 import type { FlatESLintConfigItem, OptionsStylistic } from "../types";
-import { pluginImport } from "../plugins";
+import { pluginAntfu, pluginImport } from "../plugins";
 
 export function imports(options: OptionsStylistic = {}): FlatESLintConfigItem[] {
   const {
@@ -10,9 +10,12 @@ export function imports(options: OptionsStylistic = {}): FlatESLintConfigItem[] 
     {
       name: "rubiin:imports",
       plugins: {
+        antfu: pluginAntfu,
         import: pluginImport,
       },
       rules: {
+        "antfu/import-dedupe": "error",
+        "antfu/no-import-node-modules-by-path": "error",
 
         "import/first": "error",
         "import/no-duplicates": "error",
