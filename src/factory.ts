@@ -138,6 +138,11 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     }));
   }
 
+  if(options.debug ?? true)
+    // eslint-disable-next-line no-console
+    console.debug("Following configs are being used:", JSON.stringify(configs, null, 2));
+
+
   // User can optionally pass a flat config item to the first argument
   // We pick the known keys as ESLint would do schema validation
   const fusedConfig = flatConfigProps.reduce((acc, key) => {
