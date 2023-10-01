@@ -1,5 +1,6 @@
 import type { FlatESLintConfigItem } from '../types'
 import { pluginNode } from '../plugins'
+import { OFF } from "../flags"
 
 export function node(): FlatESLintConfigItem[] {
   return [
@@ -14,8 +15,8 @@ export function node(): FlatESLintConfigItem[] {
         'node/no-exports-assign': 'error',
         'node/no-new-require': 'error',
         'node/no-path-concat': 'error',
-        'node/prefer-global/buffer': ['error', 'never'],
-        'node/prefer-global/process': ['error', 'never'],
+        'node/prefer-global/buffer': OFF,
+        'node/prefer-global/process':OFF,
         'node/process-exit-as-throw': 'error',
       },
     },
