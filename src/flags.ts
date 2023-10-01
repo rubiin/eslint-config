@@ -1,1 +1,1 @@
-export const OFF = 0;
+export const OFF = 0

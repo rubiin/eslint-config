@@ -1,7 +1,8 @@
-import fs from "node:fs";
-import process from "node:process";
-import gitignore from "eslint-config-flat-gitignore";
-import { isPackageExists } from "local-pkg";
+import process from 'node:process'
+import fs from 'node:fs'
+import { isPackageExists } from 'local-pkg'
+import gitignore from 'eslint-config-flat-gitignore'
+import type { FlatESLintConfigItem, OptionsConfig } from './types'
 import {
   comments,
   ignores,
@@ -18,28 +19,37 @@ import {
   test,
   typescript,
   unicorn,
+  vue,
   yaml,
-} from "./configs";
-import type { FlatESLintConfigItem, OptionsConfig } from "./types";
-import { combine } from "./utils";
+} from './configs'
+import { combine } from './utils'
 
 const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
-  "files",
-  "ignores",
-  "languageOptions",
-  "linterOptions",
-  "processor",
-  "plugins",
-  "rules",
-  "settings",
-];
+  'files',
+  'ignores',
+  'languageOptions',
+  'linterOptions',
+  'processor',
+  'plugins',
+  'rules',
+  'settings',
+]
+
+const VuePackages = [
+  'vue',
+  'nuxt',
+  'vitepress',
+  '@slidev/cli',
+]
 
 const ReactPackages = [
-  "react",
-  "next",
-  "remix",
-  "gatsby",
-];
+
+  'react',
+  'next',
+  'remix',
+  'nextra',
+  'gatsby',
+]
 
 /**
  * Construct an array of ESLint flat config items.
@@ -47,23 +57,24 @@ const ReactPackages = [
 export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]) {
   const {
     isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI),
+    vue: enableVue = VuePackages.some(i => isPackageExists(i)),
     react: enableReact = ReactPackages.some(i => isPackageExists(i)),
-    typescript: enableTypeScript = isPackageExists("typescript"),
+    typescript: enableTypeScript = isPackageExists('typescript'),
     stylistic: enableStylistic = true,
     gitignore: enableGitignore = true,
     overrides = {},
     componentExts = [],
-  } = options;
+  } = options
 
-  const configs: FlatESLintConfigItem[][] = [];
+  const configs: FlatESLintConfigItem[][] = []
 
   if (enableGitignore) {
-    if (typeof enableGitignore !== "boolean") {
-      configs.push([gitignore(enableGitignore)]);
+    if (typeof enableGitignore !== 'boolean') {
+      configs.push([gitignore(enableGitignore)])
     }
     else {
-      if (fs.existsSync(".gitignore"))
-        configs.push([gitignore()]);
+      if (fs.existsSync('.gitignore'))
+        configs.push([gitignore()])
     }
   }
 
@@ -83,29 +94,40 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
       stylistic: enableStylistic,
     }),
     unicorn(),
-  );
+  )
+
+  if (enableVue)
+    componentExts.push('vue')
 
   if (enableReact)
-    componentExts.push("react");
+    componentExts.push('react')
 
   if (enableTypeScript) {
     configs.push(typescript({
-      ...typeof enableTypeScript !== "boolean"
+      ...typeof enableTypeScript !== 'boolean'
         ? enableTypeScript
         : {},
       componentExts,
       overrides: overrides.typescript,
-    }));
+    }))
   }
 
   if (enableStylistic)
-    configs.push(stylistic());
+    configs.push(stylistic())
 
   if (options.test ?? true) {
     configs.push(test({
       isInEditor,
       overrides: overrides.test,
-    }));
+    }))
+  }
+
+  if (enableVue) {
+    configs.push(vue({
+      overrides: overrides.vue,
+      stylistic: enableStylistic,
+      typescript: !!enableTypeScript,
+    }))
   }
 
   if (enableReact) {
@@ -113,7 +135,7 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
       overrides: overrides.react,
       stylistic: enableStylistic,
       typescript: !!enableTypeScript,
-    }));
+    }))
   }
 
   if (options.jsonc ?? true) {
@@ -124,44 +146,40 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
       }),
       sortPackageJson(),
       sortTsconfig(),
-    );
+    )
   }
 
   if (options.yaml ?? true) {
     configs.push(yaml({
       overrides: overrides.yaml,
       stylistic: enableStylistic,
-    }));
+    }))
   }
 
   if (options.markdown ?? true) {
     configs.push(markdown({
       componentExts,
       overrides: overrides.markdown,
-    }));
+    }))
   }
-
-  if (options.debug ?? false)
-    // eslint-disable-next-line no-console
-    console.debug("Following configs are being used:", JSON.stringify(configs.map(element => element[0].name), null, 2));
 
   // User can optionally pass a flat config item to the first argument
   // We pick the known keys as ESLint would do schema validation
   const fusedConfig = flatConfigProps.reduce((acc, key) => {
     if (key in options)
-      acc[key] = options[key] as any;
-    return acc;
-  }, {} as FlatESLintConfigItem);
+      acc[key] = options[key] as any
+    return acc
+  }, {} as FlatESLintConfigItem)
   if (Object.keys(fusedConfig).length)
-    configs.push([fusedConfig]);
+    configs.push([fusedConfig])
 
   const merged = combine(
     ...configs,
     ...userConfigs,
-  );
+  )
 
   // recordRulesStateConfigs(merged)
   // warnUnnecessaryOffRules()
 
-  return merged;
+  return merged
 }
