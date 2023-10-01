@@ -4,11 +4,9 @@ import rubiin from "./dist/index.js";
 
 export default rubiin(
   {
-    react: true,
+    vue: true,
     typescript: true,
-    // typescript: {
-    //   tsconfigPath: 'tsconfig.json',
-    // },
+    yaml: true,
   },
   {
     files: ["src/**/*.ts"],

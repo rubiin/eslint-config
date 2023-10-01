@@ -6,18 +6,17 @@ export function stylistic(): FlatESLintConfigItem[] {
     {
       name: "rubiin:stylistic",
       plugins: {
-        antfu: pluginAntfu,
+        rubiin: pluginAntfu,
         style: pluginStylistic,
       },
       rules: {
-
         "antfu/consistent-list-newline": "error",
         "antfu/if-newline": "error",
         "antfu/top-level-function": "error",
 
         "curly": ["error", "multi-or-nest", "consistent"],
-
         "style/array-bracket-spacing": ["error", "never"],
+
         "style/arrow-spacing": ["error", { after: true, before: true }],
         "style/block-spacing": ["error", "always"],
         "style/brace-style": ["error", "stroustrup", { allowSingleLine: true }],

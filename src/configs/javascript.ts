@@ -195,15 +195,15 @@ export function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): 
             memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
           },
         ],
+
         "symbol-description": "error",
         "unicode-bom": ["error", "never"],
-
         "unused-imports/no-unused-imports": isInEditor ? OFF : "error",
+
         "unused-imports/no-unused-vars": [
           "error",
           { args: "after-used", argsIgnorePattern: "^_", vars: "all", varsIgnorePattern: "^_" },
         ],
-
         "use-isnan": ["error", { enforceForIndexOf: true, enforceForSwitchCase: true }],
         "valid-typeof": ["error", { requireStringLiterals: true }],
         "vars-on-top": "error",

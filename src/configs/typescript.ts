@@ -42,8 +42,8 @@ export function typescript(
       // Install the plugins without globs, so they can be configured separately.
       name: "rubiin:typescript:setup",
       plugins: {
-        antfu: pluginAntfu,
         import: pluginImport,
+        rubiin: pluginAntfu,
         ts: pluginTs as any,
       },
     },

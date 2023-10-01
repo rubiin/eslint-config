@@ -1,7 +1,8 @@
-import fs from "node:fs";
 import process from "node:process";
-import gitignore from "eslint-config-flat-gitignore";
+import fs from "node:fs";
 import { isPackageExists } from "local-pkg";
+import gitignore from "eslint-config-flat-gitignore";
+import type { FlatESLintConfigItem, OptionsConfig } from "./types";
 import {
   comments,
   ignores,
@@ -18,9 +19,9 @@ import {
   test,
   typescript,
   unicorn,
+  vue,
   yaml,
 } from "./configs";
-import type { FlatESLintConfigItem, OptionsConfig } from "./types";
 import { combine } from "./utils";
 
 const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
@@ -34,10 +35,19 @@ const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
   "settings",
 ];
 
+const VuePackages = [
+  "vue",
+  "nuxt",
+  "vitepress",
+  "@slidev/cli",
+];
+
 const ReactPackages = [
+
   "react",
   "next",
   "remix",
+  "nextra",
   "gatsby",
 ];
 
@@ -47,6 +57,7 @@ const ReactPackages = [
 export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]) {
   const {
     isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI),
+    vue: enableVue = VuePackages.some(i => isPackageExists(i)),
     react: enableReact = ReactPackages.some(i => isPackageExists(i)),
     typescript: enableTypeScript = isPackageExists("typescript"),
     stylistic: enableStylistic = true,
@@ -85,6 +96,9 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     unicorn(),
   );
 
+  if (enableVue)
+    componentExts.push("vue");
+
   if (enableReact)
     componentExts.push("react");
 
@@ -105,6 +119,14 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     configs.push(test({
       isInEditor,
       overrides: overrides.test,
+    }));
+  }
+
+  if (enableVue) {
+    configs.push(vue({
+      overrides: overrides.vue,
+      stylistic: enableStylistic,
+      typescript: !!enableTypeScript,
     }));
   }
 
@@ -140,10 +162,6 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
       overrides: overrides.markdown,
     }));
   }
-
-  if (options.debug ?? false)
-    // eslint-disable-next-line no-console
-    console.debug("Following configs are being used:", JSON.stringify(configs.map(element => element[0].name), null, 2));
 
   // User can optionally pass a flat config item to the first argument
   // We pick the known keys as ESLint would do schema validation

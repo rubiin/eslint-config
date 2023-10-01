@@ -18,7 +18,7 @@ Flat ESLint config for JavaScript, TypeScript, React.
 npm i -D @rubiin/eslint-config
 ```
 
-Require Node.js >= 16.14.
+Require Node.js >= 16
 
 ## Usage
 
@@ -56,9 +56,8 @@ export default rubiin({
 
 Most of the rules are the same, but there are some differences:
 
-- Supports react
+- Supports react as well as vue
 - Adds deprecation plugin
-- Doesn't add formatting for json, md
 - More stricter rules.
 
 ## License

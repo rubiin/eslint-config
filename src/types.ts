@@ -111,9 +111,6 @@ export interface OptionsIsInEditor {
 }
 
 export interface OptionsConfig extends OptionsComponentExts {
-
-  debug?: boolean
-
   /**
    * Enable gitignore support.
    *
@@ -139,6 +136,13 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default true
    */
   test?: boolean
+
+  /**
+   * Enable Vue support.
+   *
+   * @default auto-detect based on the dependencies
+   */
+  vue?: boolean
 
   /**
    * Enable React support.
@@ -188,6 +192,7 @@ export interface OptionsConfig extends OptionsComponentExts {
     javascript?: FlatESLintConfigItem["rules"]
     typescript?: FlatESLintConfigItem["rules"]
     test?: FlatESLintConfigItem["rules"]
+    vue?: FlatESLintConfigItem["rules"]
     react?: FlatESLintConfigItem["rules"]
     jsonc?: FlatESLintConfigItem["rules"]
     markdown?: FlatESLintConfigItem["rules"]
