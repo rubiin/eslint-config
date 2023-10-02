@@ -1,7 +1,7 @@
 {
   "name": "@rubiin/eslint-config",
   "type": "module",
-  "version": "1.8.6-beta.11",
+  "version": "1.8.6",
   "packageManager": "pnpm@8.8.0",
   "description": "Anthony's ESLint config",
   "author": "Rubin Bhandari <roobin.bhandari@gmail.com> (https://github.com/rubiin/)",
@@ -9,7 +9,11 @@
   "funding": "https://github.com/sponsors/rubiin",
   "homepage": "https://github.com/rubiin/eslint-config",
   "keywords": [
-    "eslint-config"
+    "eslint-config",
+    "rubiin",
+    "eslint",
+    "eslint-config-rubiin",
+    "eslint-config-typescript"
   ],
   "exports": {
     ".": {
