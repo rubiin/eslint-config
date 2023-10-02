@@ -41,5 +41,8 @@
     "json",
     "jsonc",
     "yaml"
+  ],
+  "cSpell.words": [
+    "antfu"
   ]
 }

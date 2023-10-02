@@ -22,11 +22,90 @@ Require Node.js >= 16
 
 ## Usage
 
+
+### Create config file
+
+With [`"type": "module"`](https://nodejs.org/api/packages.html#type) in `package.json` (recommended):
+
 ```js
 // eslint.config.js
-import rubiin from "@rubiin/eslint-config";
+import rubiin from '@rubiin/eslint-config'
 
-export default rubiin();
+export default rubiin()
+```
+
+With CJS:
+
+```js
+// eslint.config.js
+const rubiin = require('@rubiin/eslint-config').default
+
+module.exports = rubiin()
+```
+
+> Note that `.eslintignore` no longer works in Flat config, see [customization](#customization) for more details.
+
+### Add script for package.json
+
+For example:
+
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
+}
+```
+
+## VS Code support (auto fix)
+
+Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+Add the following settings to your `.vscode/settings.json`:
+
+```jsonc
+{
+  // Enable the ESlint flat config support
+  "eslint.experimental.useFlatConfig": true,
+
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+
+  // Auto fix
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
+  },
+
+  // Silent the stylistic rules in you IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off" },
+    { "rule": "*-indent", "severity": "off" },
+    { "rule": "*-spacing", "severity": "off" },
+    { "rule": "*-spaces", "severity": "off" },
+    { "rule": "*-order", "severity": "off" },
+    { "rule": "*-dangle", "severity": "off" },
+    { "rule": "*-newline", "severity": "off" },
+    { "rule": "*quotes", "severity": "off" },
+    { "rule": "*semi", "severity": "off" }
+  ],
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ]
+}
 ```
 
 ### Custom Config
@@ -52,7 +131,21 @@ export default rubiin({
 }
 ```
 
-## Comparing to [`@rubiin/eslint-config`](https://github.com/rubiin/eslint-config)
+### Type Aware Rules
+
+You can optionally enable the [type aware rules](https://typescript-eslint.io/linting/typed-linting/) by passing the options object to the `typescript` config:
+
+```js
+// eslint.config.js
+import rubiin from '@rubiin/eslint-config'
+
+export default rubiin({
+  typescript: {
+    tsconfigPath: 'tsconfig.json',
+  },
+})
+```
+## Comparing to [`@antfu/eslint-config`](https://github.com/antfu/eslint-config)
 
 Most of the rules are the same, but there are some differences:
 
