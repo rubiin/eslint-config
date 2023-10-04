@@ -1,7 +1,7 @@
-import noThen from './no-then'
+import noThen from "./no-then";
 
 export default {
   rules: {
-    'no-then': noThen
+    "no-then": noThen,
   },
-}
+};

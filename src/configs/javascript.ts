@@ -34,7 +34,7 @@ export function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): 
       name: "rubiin:javascript",
       plugins: {
         "antfu": pluginAntfu,
-        "unused-imports": pluginUnusedImports
+        "unused-imports": pluginUnusedImports,
       },
       rules: {
         "accessor-pairs": ["error", { enforceForClassMembers: true, setWithoutGet: true }],

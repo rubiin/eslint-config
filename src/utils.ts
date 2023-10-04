@@ -48,13 +48,3 @@ export function warnUnnecessaryOffRules() {
   for (const off of unnecessaryOffRules)
     console.warn(`[eslint] rule \`${off}\` is never turned on, you can remove the rule from your config`);
 }
-
-const hasDocs = [
-  "consistent-list-newline",
-  "if-newline",
-  "import-dedupe",
-  "top-level-function",
-];
-
-const blobUrl = "https://github.com/antfu/eslint-plugin-antfu/blob/main/src/rules/";
-
