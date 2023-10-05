@@ -29,7 +29,7 @@ With [`"type": "module"`](https://nodejs.org/api/packages.html#type) in `package
 
 ```js
 // eslint.config.js
-import rubiin from '@rubiin/eslint-config';
+import rubiin from "@rubiin/eslint-config";
 
 export default rubiin();
 ```
@@ -38,7 +38,7 @@ With CJS:
 
 ```js
 // eslint.config.js
-const rubiin = require('@rubiin/eslint-config').default;
+const rubiin = require("@rubiin/eslint-config").default;
 
 module.exports = rubiin();
 ```
@@ -112,14 +112,31 @@ Add the following settings to your `.vscode/settings.json`:
 
 ```js
 // eslint.config.js
-import rubiin from '@rubiin/eslint-config';
+import rubiin from "@rubiin/eslint-config";
 
 export default rubiin({
-  stylistic: true, // enable stylistic formatting rules
+  // Enable stylistic formatting rules
+  // stylistic: true,
+
+  // Or customize the stylistic rules
+  stylistic: {
+    indent: 2, // 4, or 'tab'
+    quotes: "single", // or 'double'
+  },
+
+  // TypeScript and Vue are auto-detected, you can also explicitly enable them:
   typescript: true,
-  react: true,
+  vue: true,
+
+  // Disable jsonc and yaml support
   jsonc: false,
   yaml: false,
+
+  // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+  ignores: [
+    "./fixtures",
+    // ...globs
+  ]
 });
 ```
 
@@ -137,11 +154,11 @@ You can optionally enable the [type aware rules](https://typescript-eslint.io/li
 
 ```js
 // eslint.config.js
-import rubiin from '@rubiin/eslint-config';
+import rubiin from "@rubiin/eslint-config";
 
 export default rubiin({
   typescript: {
-    tsconfigPath: 'tsconfig.json',
+    tsconfigPath: "tsconfig.json",
   },
 });
 ```

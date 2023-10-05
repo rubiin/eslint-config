@@ -1,7 +1,7 @@
-import type { FlatESLintConfigItem, OptionsOverrides, OptionsStylistic } from '../types';
-import { GLOB_YAML } from '../globs';
-import { parserYaml, pluginYaml } from '../plugins';
-import { OFF } from '../flags';
+import type { FlatESLintConfigItem, OptionsOverrides, OptionsStylistic } from "../types";
+import { GLOB_YAML } from "../globs";
+import { parserYaml, pluginYaml } from "../plugins";
+import { OFF } from "../flags";
 
 export function yaml(
   options: OptionsOverrides & OptionsStylistic = {},
@@ -13,12 +13,12 @@ export function yaml(
 
   const {
     indent = 2,
-    quotes = 'single',
-  } = typeof stylistic === 'boolean' ? {} : stylistic;
+    quotes = "double",
+  } = typeof stylistic === "boolean" ? {} : stylistic;
 
   return [
     {
-      name: 'rubiin:yaml:setup',
+      name: "rubiin:yaml:setup",
       plugins: {
         yaml: pluginYaml as any,
       },
@@ -28,32 +28,32 @@ export function yaml(
       languageOptions: {
         parser: parserYaml,
       },
-      name: 'rubiin:yaml:rules',
+      name: "rubiin:yaml:rules",
       rules: {
-        'style/spaced-comment': OFF,
+        "style/spaced-comment": OFF,
 
-        'yaml/block-mapping': 'error',
-        'yaml/block-sequence': 'error',
-        'yaml/no-empty-key': 'error',
-        'yaml/no-empty-sequence-entry': 'error',
-        'yaml/no-irregular-whitespace': 'error',
-        'yaml/plain-scalar': 'error',
+        "yaml/block-mapping": "error",
+        "yaml/block-sequence": "error",
+        "yaml/no-empty-key": "error",
+        "yaml/no-empty-sequence-entry": "error",
+        "yaml/no-irregular-whitespace": "error",
+        "yaml/plain-scalar": "error",
 
-        'yaml/vue-custom-block/no-parsing-error': 'error',
+        "yaml/vue-custom-block/no-parsing-error": "error",
 
         ...stylistic
           ? {
-              'yaml/block-mapping-question-indicator-newline': 'error',
-              'yaml/block-sequence-hyphen-indicator-newline': 'error',
-              'yaml/flow-mapping-curly-newline': 'error',
-              'yaml/flow-mapping-curly-spacing': 'error',
-              'yaml/flow-sequence-bracket-newline': 'error',
-              'yaml/flow-sequence-bracket-spacing': 'error',
-              'yaml/indent': ['error', indent],
-              'yaml/key-spacing': 'error',
-              'yaml/no-tab-indent': indent === 'tab' ? 'off' : 'error',
-              'yaml/quotes': ['error', { avoidEscape: false, prefer: quotes }],
-              'yaml/spaced-comment': 'error',
+              "yaml/block-mapping-question-indicator-newline": "error",
+              "yaml/block-sequence-hyphen-indicator-newline": "error",
+              "yaml/flow-mapping-curly-newline": "error",
+              "yaml/flow-mapping-curly-spacing": "error",
+              "yaml/flow-sequence-bracket-newline": "error",
+              "yaml/flow-sequence-bracket-spacing": "error",
+              "yaml/indent": ["error", indent],
+              "yaml/key-spacing": "error",
+              "yaml/no-tab-indent": indent === "tab" ? "off" : "error",
+              "yaml/quotes": ["error", { avoidEscape: false, prefer: quotes }],
+              "yaml/spaced-comment": "error",
             }
           : {},
 

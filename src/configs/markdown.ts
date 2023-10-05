@@ -1,7 +1,7 @@
-import type { FlatESLintConfigItem, OptionsComponentExts, OptionsOverrides } from '../types';
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from '../globs';
-import { pluginMarkdown } from '../plugins';
-import { OFF } from '../flags';
+import type { FlatESLintConfigItem, OptionsComponentExts, OptionsOverrides } from "../types";
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../globs";
+import { pluginMarkdown } from "../plugins";
+import { OFF } from "../flags";
 
 export function markdown(options: OptionsComponentExts & OptionsOverrides = {}): FlatESLintConfigItem[] {
   const {
@@ -11,15 +11,15 @@ export function markdown(options: OptionsComponentExts & OptionsOverrides = {}):
 
   return [
     {
-      name: 'rubiin:markdown:setup',
+      name: "rubiin:markdown:setup",
       plugins: {
         markdown: pluginMarkdown,
       },
     },
     {
       files: [GLOB_MARKDOWN],
-      name: 'rubiin:markdown:processor',
-      processor: 'markdown/markdown',
+      name: "rubiin:markdown:processor",
+      processor: "markdown/markdown",
     },
     {
       files: [
@@ -33,52 +33,52 @@ export function markdown(options: OptionsComponentExts & OptionsOverrides = {}):
           },
         },
       },
-      name: 'rubiin:markdown:rules',
+      name: "rubiin:markdown:rules",
       rules: {
-        'antfu/no-cjs-exports': OFF,
-        'antfu/no-ts-export-equal': OFF,
+        "antfu/no-cjs-exports": OFF,
+        "antfu/no-ts-export-equal": OFF,
 
-        'no-alert': OFF,
-        'no-console': OFF,
-        'no-undef': OFF,
-        'no-unused-expressions': OFF,
-        'no-unused-vars': OFF,
+        "no-alert": OFF,
+        "no-console": OFF,
+        "no-undef": OFF,
+        "no-unused-expressions": OFF,
+        "no-unused-vars": OFF,
 
-        'node/prefer-global/process': OFF,
+        "node/prefer-global/process": OFF,
 
-        'style/comma-dangle': OFF,
-        'style/eol-last': OFF,
+        "style/comma-dangle": OFF,
+        "style/eol-last": OFF,
 
-        'ts/consistent-type-imports': OFF,
-        'ts/no-namespace': OFF,
-        'ts/no-redeclare': OFF,
-        'ts/no-require-imports': OFF,
-        'ts/no-unused-vars': OFF,
-        'ts/no-use-before-define': OFF,
-        'ts/no-var-requires': OFF,
+        "ts/consistent-type-imports": OFF,
+        "ts/no-namespace": OFF,
+        "ts/no-redeclare": OFF,
+        "ts/no-require-imports": OFF,
+        "ts/no-unused-vars": OFF,
+        "ts/no-use-before-define": OFF,
+        "ts/no-var-requires": OFF,
 
-        'unicode-bom': 'off',
-        'unused-imports/no-unused-imports': OFF,
-        'unused-imports/no-unused-vars': OFF,
+        "unicode-bom": "off",
+        "unused-imports/no-unused-imports": OFF,
+        "unused-imports/no-unused-vars": OFF,
 
         // Type aware rules
         ...{
-          'ts/await-thenable': OFF,
-          'ts/dot-notation': OFF,
-          'ts/no-floating-promises': OFF,
-          'ts/no-for-in-array': OFF,
-          'ts/no-implied-eval': OFF,
-          'ts/no-misused-promises': OFF,
-          'ts/no-throw-literal': OFF,
-          'ts/no-unnecessary-type-assertion': OFF,
-          'ts/no-unsafe-argument': OFF,
-          'ts/no-unsafe-assignment': OFF,
-          'ts/no-unsafe-call': OFF,
-          'ts/no-unsafe-member-access': OFF,
-          'ts/no-unsafe-return': OFF,
-          'ts/restrict-plus-operands': OFF,
-          'ts/restrict-template-expressions': OFF,
-          'ts/unbound-method': OFF,
+          "ts/await-thenable": OFF,
+          "ts/dot-notation": OFF,
+          "ts/no-floating-promises": OFF,
+          "ts/no-for-in-array": OFF,
+          "ts/no-implied-eval": OFF,
+          "ts/no-misused-promises": OFF,
+          "ts/no-throw-literal": OFF,
+          "ts/no-unnecessary-type-assertion": OFF,
+          "ts/no-unsafe-argument": OFF,
+          "ts/no-unsafe-assignment": OFF,
+          "ts/no-unsafe-call": OFF,
+          "ts/no-unsafe-member-access": OFF,
+          "ts/no-unsafe-return": OFF,
+          "ts/restrict-plus-operands": OFF,
+          "ts/restrict-template-expressions": OFF,
+          "ts/unbound-method": OFF,
         },
 
         ...overrides,
