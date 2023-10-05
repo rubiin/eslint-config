@@ -29,7 +29,7 @@ With [`"type": "module"`](https://nodejs.org/api/packages.html#type) in `package
 
 ```js
 // eslint.config.js
-import rubiin from "@rubiin/eslint-config";
+import rubiin from '@rubiin/eslint-config';
 
 export default rubiin();
 ```
@@ -38,7 +38,7 @@ With CJS:
 
 ```js
 // eslint.config.js
-const rubiin = require("@rubiin/eslint-config").default;
+const rubiin = require('@rubiin/eslint-config').default;
 
 module.exports = rubiin();
 ```
@@ -112,7 +112,7 @@ Add the following settings to your `.vscode/settings.json`:
 
 ```js
 // eslint.config.js
-import rubiin from "@rubiin/eslint-config";
+import rubiin from '@rubiin/eslint-config';
 
 export default rubiin({
   stylistic: true, // enable stylistic formatting rules
@@ -137,11 +137,11 @@ You can optionally enable the [type aware rules](https://typescript-eslint.io/li
 
 ```js
 // eslint.config.js
-import rubiin from "@rubiin/eslint-config";
+import rubiin from '@rubiin/eslint-config';
 
 export default rubiin({
   typescript: {
-    tsconfigPath: "tsconfig.json",
+    tsconfigPath: 'tsconfig.json',
   },
 });
 ```

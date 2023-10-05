@@ -1,8 +1,8 @@
-import process from "node:process";
-import fs from "node:fs";
-import { isPackageExists } from "local-pkg";
-import gitignore from "eslint-config-flat-gitignore";
-import type { FlatESLintConfigItem, OptionsConfig } from "./types";
+import process from 'node:process';
+import fs from 'node:fs';
+import { isPackageExists } from 'local-pkg';
+import gitignore from 'eslint-config-flat-gitignore';
+import type { FlatESLintConfigItem, OptionsConfig } from './types';
 import {
   comments,
   ignores,
@@ -21,34 +21,34 @@ import {
   unicorn,
   vue,
   yaml,
-} from "./configs";
-import { combine } from "./utils";
+} from './configs';
+import { combine } from './utils';
 
 const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
-  "files",
-  "ignores",
-  "languageOptions",
-  "linterOptions",
-  "processor",
-  "plugins",
-  "rules",
-  "settings",
+  'files',
+  'ignores',
+  'languageOptions',
+  'linterOptions',
+  'processor',
+  'plugins',
+  'rules',
+  'settings',
 ];
 
 const VuePackages = [
-  "vue",
-  "nuxt",
-  "vitepress",
-  "@slidev/cli",
+  'vue',
+  'nuxt',
+  'vitepress',
+  '@slidev/cli',
 ];
 
 const ReactPackages = [
 
-  "react",
-  "next",
-  "remix",
-  "nextra",
-  "gatsby",
+  'react',
+  'next',
+  'remix',
+  'nextra',
+  'gatsby',
 ];
 
 /**
@@ -59,7 +59,7 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI),
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
     react: enableReact = ReactPackages.some(i => isPackageExists(i)),
-    typescript: enableTypeScript = isPackageExists("typescript"),
+    typescript: enableTypeScript = isPackageExists('typescript'),
     stylistic: enableStylistic = true,
     gitignore: enableGitignore = true,
     overrides = {},
@@ -69,11 +69,11 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
   const configs: FlatESLintConfigItem[][] = [];
 
   if (enableGitignore) {
-    if (typeof enableGitignore !== "boolean") {
+    if (typeof enableGitignore !== 'boolean') {
       configs.push([gitignore(enableGitignore)]);
     }
     else {
-      if (fs.existsSync(".gitignore"))
+      if (fs.existsSync('.gitignore'))
         configs.push([gitignore()]);
     }
   }
@@ -97,14 +97,14 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
   );
 
   if (enableVue)
-    componentExts.push("vue");
+    componentExts.push('vue');
 
   if (enableReact)
-    componentExts.push("react");
+    componentExts.push('react');
 
   if (enableTypeScript) {
     configs.push(typescript({
-      ...typeof enableTypeScript !== "boolean"
+      ...typeof enableTypeScript !== 'boolean'
         ? enableTypeScript
         : {},
       componentExts,
@@ -112,8 +112,13 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
     }));
   }
 
-  if (enableStylistic)
-    configs.push(stylistic());
+  if (enableStylistic) {
+    configs.push(stylistic(
+      typeof enableStylistic === 'boolean'
+        ? {}
+        : enableStylistic,
+    ));
+  }
 
   if (options.test ?? true) {
     configs.push(test({

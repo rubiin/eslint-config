@@ -1,7 +1,7 @@
-import type { FlatESLintConfigItem, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from "../types";
-import { GLOB_JSX, GLOB_TSX } from "../globs";
-import { parserTs, pluginReact, pluginReactHooks, pluginReactUseMemo } from "../plugins";
-import { OFF } from "../flags";
+import type { FlatESLintConfigItem, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from '../types';
+import { GLOB_JSX, GLOB_TSX } from '../globs';
+import { parserTs, pluginReact, pluginReactHooks, pluginReactUseMemo } from '../plugins';
+import { OFF } from '../flags';
 
 export function react(
   options: OptionsHasTypeScript & OptionsOverrides & OptionsStylistic = {},
@@ -13,11 +13,11 @@ export function react(
 
   return [
     {
-      name: "rubiin:vue:setup",
+      name: 'rubiin:vue:setup',
       plugins: {
-        "@arthurgeron/react-usememo": pluginReactUseMemo,
-        "react": pluginReact,
-        "react-hooks": pluginReactHooks,
+        '@arthurgeron/react-usememo': pluginReactUseMemo,
+        'react': pluginReact,
+        'react-hooks': pluginReactHooks,
       },
     },
     {
@@ -28,16 +28,16 @@ export function react(
             jsx: true,
           },
           parser: options.typescript ? parserTs as any : null,
-          sourceType: "module",
+          sourceType: 'module',
         },
       },
-      name: "rubiin:react:rules",
+      name: 'rubiin:react:rules',
       rules: {
         ...pluginReact.configs.recommended.rules,
         ...pluginReactHooks.configs.recommended.rules,
-        "@arthurgeron/react-usememo/require-usememo": [2],
-        "react/react-in-jsx-scope": OFF,
-        "style/jsx-quotes": ["error", "prefer-double"],
+        '@arthurgeron/react-usememo/require-usememo': [2],
+        'react/react-in-jsx-scope': OFF,
+        'style/jsx-quotes': ['error', 'prefer-double'],
         ...stylistic
           ? {
               // add react style rules here

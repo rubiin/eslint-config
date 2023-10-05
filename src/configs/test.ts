@@ -1,7 +1,7 @@
-import type { FlatESLintConfigItem, OptionsIsInEditor, OptionsOverrides } from "../types";
-import { pluginNoOnlyTests, pluginVitest } from "../plugins";
-import { GLOB_TESTS } from "../globs";
-import { OFF } from "../flags";
+import type { FlatESLintConfigItem, OptionsIsInEditor, OptionsOverrides } from '../types';
+import { pluginNoOnlyTests, pluginVitest } from '../plugins';
+import { GLOB_TESTS } from '../globs';
+import { OFF } from '../flags';
 
 export function test(options: OptionsIsInEditor & OptionsOverrides = {}): FlatESLintConfigItem[] {
   const {
@@ -11,7 +11,7 @@ export function test(options: OptionsIsInEditor & OptionsOverrides = {}): FlatES
 
   return [
     {
-      name: "rubiin:test:setup",
+      name: 'rubiin:test:setup',
       plugins: {
         test: {
           ...pluginVitest,
@@ -25,13 +25,13 @@ export function test(options: OptionsIsInEditor & OptionsOverrides = {}): FlatES
     },
     {
       files: GLOB_TESTS,
-      name: "rubiin:test:rules",
+      name: 'rubiin:test:rules',
       rules: {
-        "test/consistent-test-it": ["error", { fn: "it", withinDescribe: "it" }],
-        "test/no-identical-title": "error",
-        "test/no-only-tests": isInEditor ? OFF : "error",
-        "test/prefer-hooks-in-order": "error",
-        "test/prefer-lowercase-title": "error",
+        'test/consistent-test-it': ['error', { fn: 'it', withinDescribe: 'it' }],
+        'test/no-identical-title': 'error',
+        'test/no-only-tests': isInEditor ? OFF : 'error',
+        'test/prefer-hooks-in-order': 'error',
+        'test/prefer-lowercase-title': 'error',
 
         ...overrides,
       },

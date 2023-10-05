@@ -1,7 +1,7 @@
-import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
-import type { ParserOptions } from "@typescript-eslint/parser";
-import type { ESLint, Linter } from "eslint";
-import type { LanguageOptions, LinterOptions } from "eslint-define-config";
+import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
+import type { ParserOptions } from '@typescript-eslint/parser';
+import type { ESLint, Linter } from 'eslint';
+import type { LanguageOptions, LinterOptions } from 'eslint-define-config';
 
 /**
  * Flat ESLint Configuration.
@@ -99,11 +99,15 @@ export interface OptionsHasTypeScript {
 }
 
 export interface OptionsStylistic {
-  stylistic?: boolean
+  stylistic?: boolean | StylisticConfig
 }
 
+export interface StylisticConfig {
+  indent?: number | 'tab'
+  quotes?: 'single' | 'double'
+}
 export interface OptionsOverrides {
-  overrides?: FlatESLintConfigItem["rules"]
+  overrides?: FlatESLintConfigItem['rules']
 }
 
 export interface OptionsIsInEditor {
@@ -189,13 +193,13 @@ export interface OptionsConfig extends OptionsComponentExts {
    * Provide overrides for rules for each integration.
    */
   overrides?: {
-    javascript?: FlatESLintConfigItem["rules"]
-    typescript?: FlatESLintConfigItem["rules"]
-    test?: FlatESLintConfigItem["rules"]
-    vue?: FlatESLintConfigItem["rules"]
-    react?: FlatESLintConfigItem["rules"]
-    jsonc?: FlatESLintConfigItem["rules"]
-    markdown?: FlatESLintConfigItem["rules"]
-    yaml?: FlatESLintConfigItem["rules"]
+    javascript?: FlatESLintConfigItem['rules']
+    typescript?: FlatESLintConfigItem['rules']
+    test?: FlatESLintConfigItem['rules']
+    vue?: FlatESLintConfigItem['rules']
+    react?: FlatESLintConfigItem['rules']
+    jsonc?: FlatESLintConfigItem['rules']
+    markdown?: FlatESLintConfigItem['rules']
+    yaml?: FlatESLintConfigItem['rules']
   }
 }

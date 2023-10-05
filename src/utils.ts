@@ -1,4 +1,4 @@
-import type { FlatESLintConfigItem } from "./types";
+import type { FlatESLintConfigItem } from './types';
 
 /**
  * Combine array and non-array configs into a single array.
@@ -28,12 +28,12 @@ export function recordRulesStateConfigs(configs: FlatESLintConfigItem[]): FlatES
   return configs;
 }
 
-export function recordRulesState(rules: FlatESLintConfigItem["rules"]): FlatESLintConfigItem["rules"] {
+export function recordRulesState(rules: FlatESLintConfigItem['rules']): FlatESLintConfigItem['rules'] {
   for (const [key, value] of Object.entries(rules ?? {})) {
     const firstValue = Array.isArray(value) ? value[0] : value;
     if (firstValue == null)
       continue;
-    if (firstValue === "off" || firstValue === 0)
+    if (firstValue === 'off' || firstValue === 0)
       rulesOff.add(key);
     else
       rulesOn.add(key);
