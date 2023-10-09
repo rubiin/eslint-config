@@ -1,7 +1,6 @@
 import type { FlatESLintConfigItem, OptionsOverrides, OptionsStylistic } from "../types";
 import { GLOB_YAML } from "../globs";
 import { parserYaml, pluginYaml } from "../plugins";
-import { OFF } from "../flags";
 
 export function yaml(
   options: OptionsOverrides & OptionsStylistic = {},
@@ -30,7 +29,7 @@ export function yaml(
       },
       name: "rubiin:yaml:rules",
       rules: {
-        "style/spaced-comment": OFF,
+        "style/spaced-comment": "off",
 
         "yaml/block-mapping": "error",
         "yaml/block-sequence": "error",
