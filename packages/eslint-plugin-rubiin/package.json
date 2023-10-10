@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-rubiin",
-  "version": "0.43.0-beta.2",
+  "version": "1.5.8",
   "license": "MIT",
   "homepage": "https://github.com/rubiin/eslint-config",
   "main": "./dist/index.cjs",
