@@ -57,6 +57,7 @@ export const GLOB_EXCLUDE = [
   "**/.vitepress/cache",
   "**/.nuxt",
   "**/.vercel",
+  "**/.next",
   "**/.changeset",
   "**/.idea",
   "**/.cache",
