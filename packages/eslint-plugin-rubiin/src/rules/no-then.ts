@@ -3,7 +3,7 @@ import type { TSESLint } from "@typescript-eslint/utils";
 export const RULE_NAME = "no-then";
 export type MessageIds = "noThen" | "noCatch";
 
-const noThen: TSESLint.RuleModule<MessageIds> = {
+export const noThen: TSESLint.RuleModule<MessageIds> = {
   create: (context) => {
     return {
       MemberExpression: (node) => {
@@ -25,5 +25,3 @@ const noThen: TSESLint.RuleModule<MessageIds> = {
     type: "suggestion",
   },
 };
-
-export default noThen;
