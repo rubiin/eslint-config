@@ -3,28 +3,39 @@
   "version": "1.8.15",
   "license": "MIT",
   "homepage": "https://github.com/rubiin/eslint-config",
-  "main": "./dist/index.cjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && unbuild",
-    "stub": "unbuild --stub",
-    "test": "vitest",
-    "prepublishOnly": "nr build"
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "pnpm run dev && eslint .",
+    "prepublishOnly": "nr build",
+    "test": "vitest"
+  },
+  "peerDependencies": {
+    "eslint": "*"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^6.7.2"
+    "@typescript-eslint/utils": "^6.7.4"
   },
   "devDependencies": {
     "@types/node": "^20.6.2",
     "@typescript-eslint/rule-tester": "^6.7.2",
+    "@typescript-eslint/typescript-estree": "^6.7.4",
+    "@typescript-eslint/utils": "^6.7.4",
     "unbuild": "^2.0.0",
     "vitest": "^0.34.4",
     "eslint": "^8.51.0"
-  },
-  "resolutions": {
-    "eslint-plugin-rubiin": "workspace:*"
   }
 }

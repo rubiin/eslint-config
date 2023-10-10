@@ -35,8 +35,7 @@
     "prepack": "nr build",
     "release": "bumpp && pnpm publish",
     "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "prepare": "simple-git-hooks"
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "eslint": ">=8.0.0"
@@ -85,7 +84,6 @@
     "eslint-plugin-sort-keys": "^2.3.5",
     "lint-staged": "^14.0.1",
     "rimraf": "^5.0.5",
-    "simple-git-hooks": "^2.9.0",
     "sucrase": "^3.34.0",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",

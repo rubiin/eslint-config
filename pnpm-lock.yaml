@@ -147,9 +147,6 @@ importers:
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
-      simple-git-hooks:
-        specifier: ^2.9.0
-        version: 2.9.0
       sucrase:
         specifier: ^3.34.0
         version: 3.34.0
@@ -166,7 +163,7 @@ importers:
   packages/eslint-plugin-rubiin:
     dependencies:
       '@typescript-eslint/utils':
-        specifier: ^6.7.2
+        specifier: ^6.7.4
         version: 6.7.5(eslint@8.51.0)(typescript@5.2.2)
     devDependencies:
       '@types/node':
@@ -175,6 +172,9 @@ importers:
       '@typescript-eslint/rule-tester':
         specifier: ^6.7.2
         version: 6.7.5(@eslint/eslintrc@2.1.2)(eslint@8.51.0)(typescript@5.2.2)
+      '@typescript-eslint/typescript-estree':
+        specifier: ^6.7.4
+        version: 6.7.5(typescript@5.2.2)
       eslint:
         specifier: ^8.51.0
         version: 8.51.0
@@ -4212,12 +4212,6 @@ packages:
   /signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
-    dev: true
-
-  /simple-git-hooks@2.9.0:
-    resolution: {integrity: sha512-waSQ5paUQtyGC0ZxlHmcMmD9I1rRXauikBwX31bX58l5vTOhCEcBC5Bi+ZDkPXTjDnZAF8TbCqKBY+9+sVPScw==}
-    hasBin: true
-    requiresBuild: true
     dev: true
 
   /sisteransi@1.0.5:

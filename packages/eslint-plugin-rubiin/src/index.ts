@@ -1,6 +1,6 @@
 import type { ESLint, Linter } from 'eslint'
 import { version } from '../package.json'
-import {noThen} from "./rules"
+import {noThen} from "./rules/no-then"
 
 const plugin = {
   meta: {

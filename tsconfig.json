@@ -4,7 +4,11 @@
     "module": "es2020",
     "moduleResolution": "Bundler",
     "baseUrl": ".",
-    "esModuleInterop": true
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
   },
   "include": [
     "./packages/**/*.ts"

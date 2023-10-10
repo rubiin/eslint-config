@@ -1,9 +1,25 @@
-import type { TSESLint } from "@typescript-eslint/utils";
+import { createEslintRule } from './utils'
 
 export const RULE_NAME = "no-then";
 export type MessageIds = "noThen" | "noCatch";
 
-export const noThen: TSESLint.RuleModule<MessageIds> = {
+export type Options = []
+
+export const noThen =  createEslintRule<Options, MessageIds>({
+  name: RULE_NAME,
+  meta: {
+    type: 'suggestion',
+    docs: {
+      description: 'Prefer async/await to Promise.then()',
+      recommended: 'recommended',
+    },
+    schema: [],
+    messages: {
+      noCatch: "Prefer async/await to Promise.catch()",
+      noThen: "Prefer async/await to Promise.then()",
+    },
+  },
+  defaultOptions: [],
   create: (context) => {
     return {
       MemberExpression: (node) => {
@@ -14,14 +30,4 @@ export const noThen: TSESLint.RuleModule<MessageIds> = {
       },
     };
   },
-  defaultOptions: [],
-  meta: {
-    fixable: "code",
-    messages: {
-      noCatch: "Prefer async/await to Promise.catch()",
-      noThen: "Prefer async/await to Promise.then()",
-    },
-    schema: [], // no options
-    type: "suggestion",
-  },
-};
+})
