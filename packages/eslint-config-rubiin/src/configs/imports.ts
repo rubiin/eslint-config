@@ -11,7 +11,7 @@ export function imports(options: OptionsStylistic = {}): FlatESLintConfigItem[] 
       name: "rubiin:imports",
       plugins: {
         import: pluginImport,
-        rubiin: pluginAntfu,
+        antfu: pluginAntfu,
       },
       rules: {
         "antfu/import-dedupe": "error",

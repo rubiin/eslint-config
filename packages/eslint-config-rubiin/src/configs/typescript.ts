@@ -1,7 +1,7 @@
 import process from "node:process";
 import type { FlatESLintConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes } from "../types";
 import { GLOB_SRC } from "../globs";
-import { parserTs, pluginAntfu, pluginImport, pluginTs } from "../plugins";
+import { parserTs, pluginAntfu, pluginImport, pluginRubiin, pluginTs } from "../plugins";
 
 import { renameRules } from "../utils";
 
@@ -43,7 +43,8 @@ export function typescript(
       name: "rubiin:typescript:setup",
       plugins: {
         import: pluginImport,
-        rubiin: pluginAntfu,
+        antfu: pluginAntfu,
+        rubiin: pluginRubiin,
         ts: pluginTs as any,
       },
     },

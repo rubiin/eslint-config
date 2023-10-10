@@ -11,7 +11,7 @@ export function stylistic(options: StylisticConfig = {}): FlatESLintConfigItem[]
     {
       name: "rubiin:stylistic",
       plugins: {
-        rubiin: pluginAntfu,
+        antfu: pluginAntfu,
         style: pluginStylistic,
       },
       rules: {
