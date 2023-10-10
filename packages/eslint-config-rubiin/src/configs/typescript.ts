@@ -83,6 +83,9 @@ export function typescript(
         "antfu/named-tuple-spacing": "error",
         "antfu/no-cjs-exports": "error",
 
+
+        "rubiin/no-then": "error",
+
         "no-dupe-class-members": "off",
         "no-invalid-this": "off",
         "no-loss-of-precision": "off",
