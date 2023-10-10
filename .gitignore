@@ -78,4 +78,3 @@ dist
 .idea
 
 *.lerna_backup
-_fixtures
