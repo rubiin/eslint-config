@@ -30,6 +30,9 @@ importers:
 
   packages/eslint-config-rubiin:
     dependencies:
+      '@antfu/eslint-define-config':
+        specifier: ^1.23.0-1
+        version: 1.23.0-1
       '@arthurgeron/eslint-plugin-react-usememo':
         specifier: ^2.0.1
         version: 2.0.1
@@ -45,9 +48,6 @@ importers:
       eslint-config-flat-gitignore:
         specifier: ^0.1.0
         version: 0.1.0
-      eslint-define-config:
-        specifier: ^1.24.1
-        version: 1.24.1
       eslint-plugin-antfu:
         specifier: ^1.0.0-beta.12
         version: 1.0.0-beta.12(eslint@8.51.0)(typescript@5.2.2)
@@ -124,9 +124,6 @@ importers:
       '@types/eslint':
         specifier: ^8.44.4
         version: 8.44.4
-      '@types/fs-extra':
-        specifier: ^11.0.2
-        version: 11.0.2
       '@types/node':
         specifier: ^20.8.4
         version: 20.8.4
@@ -167,6 +164,9 @@ importers:
         specifier: ^6.7.5
         version: 6.7.5(eslint@8.51.0)(typescript@5.2.2)
     devDependencies:
+      '@types/eslint':
+        specifier: ^8.44.4
+        version: 8.44.4
       '@types/node':
         specifier: ^20.8.4
         version: 20.8.4
@@ -199,6 +199,11 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.19
     dev: true
+
+  /@antfu/eslint-define-config@1.23.0-1:
+    resolution: {integrity: sha512-FEhC42aXDQ315jXpMAp+P1oBW2K96Ruq/8xs1poA8rgxv0c5vqYsyWWwwNBDijqUyDn9kufa4eZrd94rcbVEhg==}
+    engines: {node: '>=18.0.0', npm: '>=9.0.0', pnpm: '>= 8.6.0'}
+    dev: false
 
   /@antfu/ni@0.21.8:
     resolution: {integrity: sha512-90X8pU2szlvw0AJo9EZMbYc2eQKkmO7mAdC4tD4r5co2Mm56MT37MIG8EyB7p4WRheuzGxuLDxJ63mF6+Zajiw==}
@@ -1088,21 +1093,8 @@ packages:
     resolution: {integrity: sha512-VeiPZ9MMwXjO32/Xu7+OwflfmeoRwkE/qzndw42gGtgJwZopBnzy2gD//NN1+go1mADzkDcqf/KnFRSjTJ8xJA==}
     dev: true
 
-  /@types/fs-extra@11.0.2:
-    resolution: {integrity: sha512-c0hrgAOVYr21EX8J0jBMXGLMgJqVf/v6yxi0dLaJboW9aQPh16Id+z6w2Tx1hm+piJOLv8xPfVKZCLfjPw/IMQ==}
-    dependencies:
-      '@types/jsonfile': 6.1.2
-      '@types/node': 20.8.4
-    dev: true
-
   /@types/json-schema@7.0.13:
     resolution: {integrity: sha512-RbSSoHliUbnXj3ny0CNFOoxrIDV6SUGyStHsvDqosw6CkdPV8TtWGlfecuK4ToyMEAql6pzNxgCFKanovUzlgQ==}
-
-  /@types/jsonfile@6.1.2:
-    resolution: {integrity: sha512-8t92P+oeW4d/CRQfJaSqEwXujrhH4OEeHRjGU3v1Q8mUS8GPF3yiX26sw4svv6faL2HfBtGTe2xWIoVgN3dy9w==}
-    dependencies:
-      '@types/node': 20.8.4
-    dev: true
 
   /@types/mdast@3.0.13:
     resolution: {integrity: sha512-HjiGiWedR0DVFkeNljpa6Lv4/IZU1+30VY5d747K7lBudFc3R0Ibr6yJ9lN3BE28VnZyDfLF/VB1Ql1ZIbKrmg==}
@@ -2092,11 +2084,6 @@ packages:
     resolution: {integrity: sha512-5nQMQFRkkhCb+ejFhKSATn/41I7ot9oRcnEDzfqwMlBE9036qM9ioYBDtKLpwmlICXr/J7naMFfb39pa4v4sGA==}
     dependencies:
       parse-gitignore: 2.0.0
-    dev: false
-
-  /eslint-define-config@1.24.1:
-    resolution: {integrity: sha512-o36vBhPSWyIQlHoMqGhhcGmOOm2A2ccBVIdLTG/AWdm9YmjpsLpf+5ntf9LlHR6dduLREgxtGwvwPwSt7vnXJg==}
-    engines: {node: '>=18.0.0', npm: '>=9.0.0', pnpm: '>= 8.6.0'}
     dev: false
 
   /eslint-flat-config-viewer@0.1.0:

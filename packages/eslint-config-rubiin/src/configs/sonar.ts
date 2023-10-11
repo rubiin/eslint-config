@@ -1,7 +1,7 @@
 import { pluginSonarjs } from "../plugins";
-import type { FlatESLintConfigItem } from "../types";
+import type { ConfigItem } from "../types";
 
-export function sonar(): FlatESLintConfigItem[] {
+export function sonar(): ConfigItem[] {
 
 
   return [
