@@ -5,6 +5,7 @@ import gitignore from "eslint-config-flat-gitignore";
 import type { FlatESLintConfigItem, OptionsConfig } from "./types";
 import {
   comments,
+  deprecation,
   ignores,
   imports,
   javascript,
@@ -23,6 +24,7 @@ import {
   yaml,
 } from "./configs";
 import { combine } from "./utils";
+import { pluginDeprecation } from ".";
 
 const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
   "files",
@@ -110,6 +112,12 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
       componentExts,
       overrides: overrides.typescript,
     }));
+
+    configs.push(deprecation(
+      {
+        typescript: !!enableTypeScript,
+      }
+    ))
   }
 
   if (enableStylistic) {

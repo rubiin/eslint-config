@@ -7,6 +7,7 @@ export { default as pluginComments } from "eslint-plugin-eslint-comments";
 export * as pluginImport from "eslint-plugin-i";
 export { default as pluginJsdoc } from "eslint-plugin-jsdoc";
 export * as pluginJsonc from "eslint-plugin-jsonc";
+export * as pluginDeprecation from "eslint-plugin-deprecation";
 export { default as pluginMarkdown } from "eslint-plugin-markdown";
 export { default as pluginNode } from "eslint-plugin-n";
 export { default as pluginStylistic } from "@stylistic/eslint-plugin";

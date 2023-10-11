@@ -18,5 +18,8 @@
     "eslint-plugin-rubiin": "link:./packages/eslint-plugin-rubiin",
     "rimraf": "^5.0.1",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "eslint-plugin-deprecation": "^2.0.0"
   }
 }
