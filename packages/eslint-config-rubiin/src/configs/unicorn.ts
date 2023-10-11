@@ -10,6 +10,10 @@ export function unicorn(): FlatESLintConfigItem[] {
       },
       rules: {
         ...pluginUnicorn.configs.recommended.rules,
+        "unicorn/prefer-module":"off",
+        "unicorn/no-process-exit":"off",
+        "unicorn/no-thenable":"off",
+
       },
     },
   ];

@@ -13,6 +13,7 @@ import {
   markdown,
   node,
   react,
+  sonar,
   sortPackageJson,
   sortTsconfig,
   stylistic,
@@ -23,7 +24,6 @@ import {
   yaml,
 } from "./configs";
 import { combine } from "./utils";
-import { pluginDeprecation } from ".";
 
 const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
   "files",
@@ -82,6 +82,7 @@ export function rubiin(options: OptionsConfig & FlatESLintConfigItem = {}, ...us
   // Base configs
   configs.push(
     ignores(),
+    sonar(),
     javascript({
       isInEditor,
       overrides: overrides.javascript,

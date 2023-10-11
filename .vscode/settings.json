@@ -42,7 +42,11 @@
     "antfu",
     "arthurgeron",
     "bumpp",
+    "nextra",
+    "nuxt",
+    "slidev",
     "Sonarjs",
-    "tsup"
+    "tsup",
+    "vitepress"
   ]
 }
