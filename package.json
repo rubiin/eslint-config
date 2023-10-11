@@ -2,7 +2,7 @@
   "name": "@rubiin/eslint-config-monorepo",
   "version": "1.8.17",
   "private": true,
-  "packageManager": "pnpm@8.7.6",
+  "packageManager": "pnpm@8.9.0",
   "author": "(https://github.com/rubiin/)",
   "license": "MIT",
   "scripts": {
@@ -14,9 +14,9 @@
   },
   "devDependencies": {
     "bumpp": "^9.2.0",
-    "eslint": "^8.49.0",
+    "eslint": "^8.51.0",
     "eslint-plugin-rubiin": "link:./packages/eslint-plugin-rubiin",
-    "rimraf": "^5.0.1",
+    "rimraf": "^5.0.5",
     "typescript": "^5.2.2"
   },
   "dependencies": {

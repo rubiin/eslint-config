@@ -1,7 +1,7 @@
 import process from "node:process";
 import type { FlatESLintConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes } from "../types";
 import { GLOB_SRC } from "../globs";
-import { parserTs, pluginAntfu, pluginImport, pluginRubiin, pluginTs } from "../plugins";
+import { parserTs, pluginAntfu, pluginDeprecation, pluginImport, pluginRubiin, pluginTs } from "../plugins";
 
 import { renameRules } from "../utils";
 
@@ -35,6 +35,8 @@ export function typescript(
     "ts/restrict-plus-operands": "error",
     "ts/restrict-template-expressions": "error",
     "ts/unbound-method": "error",
+
+    "deprecation/deprecation": "error",
   };
 
   return [
@@ -44,6 +46,7 @@ export function typescript(
       plugins: {
         import: pluginImport,
         antfu: pluginAntfu,
+        deprecation: pluginDeprecation as any,
         rubiin: pluginRubiin,
         ts: pluginTs as any,
       },
@@ -82,7 +85,6 @@ export function typescript(
         "antfu/generic-spacing": "error",
         "antfu/named-tuple-spacing": "error",
         "antfu/no-cjs-exports": "error",
-
 
         "rubiin/no-then": "error",
 

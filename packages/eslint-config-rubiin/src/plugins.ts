@@ -6,6 +6,7 @@ export { default as pluginRubiin } from "eslint-plugin-rubiin";
 export { default as pluginComments } from "eslint-plugin-eslint-comments";
 export * as pluginImport from "eslint-plugin-i";
 export { default as pluginJsdoc } from "eslint-plugin-jsdoc";
+export { default as pluginSonarjs } from "eslint-plugin-sonarjs";
 export * as pluginJsonc from "eslint-plugin-jsonc";
 export * as pluginDeprecation from "eslint-plugin-deprecation";
 export { default as pluginMarkdown } from "eslint-plugin-markdown";

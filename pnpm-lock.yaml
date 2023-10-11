@@ -16,13 +16,13 @@ importers:
         specifier: ^9.2.0
         version: 9.2.0
       eslint:
-        specifier: ^8.49.0
+        specifier: ^8.51.0
         version: 8.51.0
       eslint-plugin-rubiin:
         specifier: link:./packages/eslint-plugin-rubiin
         version: link:packages/eslint-plugin-rubiin
       rimraf:
-        specifier: ^5.0.1
+        specifier: ^5.0.5
         version: 5.0.5
       typescript:
         specifier: ^5.2.2
@@ -37,19 +37,19 @@ importers:
         specifier: 0.0.6
         version: 0.0.6(eslint@8.51.0)(typescript@5.2.2)
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.7.4
+        specifier: ^6.7.5
         version: 6.7.5(@typescript-eslint/parser@6.7.5)(eslint@8.51.0)(typescript@5.2.2)
       '@typescript-eslint/parser':
-        specifier: ^6.7.4
+        specifier: ^6.7.5
         version: 6.7.5(eslint@8.51.0)(typescript@5.2.2)
       '@typescript-eslint/utils':
-        specifier: ^6.7.4
+        specifier: ^6.7.5
         version: 6.7.5(eslint@8.51.0)(typescript@5.2.2)
       eslint-config-flat-gitignore:
         specifier: ^0.1.0
         version: 0.1.0
       eslint-define-config:
-        specifier: ^1.24.0
+        specifier: ^1.24.1
         version: 1.24.1
       eslint-plugin-antfu:
         specifier: ^1.0.0-beta.12
@@ -84,6 +84,9 @@ importers:
       eslint-plugin-rubiin:
         specifier: workspace:*
         version: link:../eslint-plugin-rubiin
+      eslint-plugin-sonarjs:
+        specifier: ^0.21.0
+        version: 0.21.0(eslint@8.51.0)
       eslint-plugin-unicorn:
         specifier: ^48.0.1
         version: 48.0.1(eslint@8.51.0)
@@ -122,16 +125,16 @@ importers:
         specifier: ^0.0.6
         version: 0.0.6(eslint@8.51.0)(typescript@5.2.2)
       '@types/eslint':
-        specifier: ^8.44.3
-        version: 8.44.3
+        specifier: ^8.44.4
+        version: 8.44.4
       '@types/fs-extra':
         specifier: ^11.0.2
         version: 11.0.2
       '@types/node':
-        specifier: ^20.8.3
+        specifier: ^20.8.4
         version: 20.8.4
       '@typescript-eslint/rule-tester':
-        specifier: ^6.7.4
+        specifier: ^6.7.5
         version: 6.7.5(@eslint/eslintrc@2.1.2)(eslint@8.51.0)(typescript@5.2.2)
       bumpp:
         specifier: ^9.2.0
@@ -167,17 +170,17 @@ importers:
   packages/eslint-plugin-rubiin:
     dependencies:
       '@typescript-eslint/utils':
-        specifier: ^6.7.4
+        specifier: ^6.7.5
         version: 6.7.5(eslint@8.51.0)(typescript@5.2.2)
     devDependencies:
       '@types/node':
-        specifier: ^20.6.2
+        specifier: ^20.8.4
         version: 20.8.4
       '@typescript-eslint/rule-tester':
-        specifier: ^6.7.2
+        specifier: ^6.7.5
         version: 6.7.5(@eslint/eslintrc@2.1.2)(eslint@8.51.0)(typescript@5.2.2)
       '@typescript-eslint/typescript-estree':
-        specifier: ^6.7.4
+        specifier: ^6.7.5
         version: 6.7.5(typescript@5.2.2)
       eslint:
         specifier: ^8.51.0
@@ -186,7 +189,7 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.2.2)
       vitest:
-        specifier: ^0.34.4
+        specifier: ^0.34.6
         version: 0.34.6
 
 packages:
@@ -1080,8 +1083,8 @@ packages:
   /@types/chai@4.3.7:
     resolution: {integrity: sha512-/k+vesl92vMvMygmQrFe9Aimxi6oQXFUX9mA5HanTrKUSAMoLauSi6PNFOdRw0oeqilaW600GNx2vSaT2f8aIQ==}
 
-  /@types/eslint@8.44.3:
-    resolution: {integrity: sha512-iM/WfkwAhwmPff3wZuPLYiHX18HI24jU8k1ZSH7P8FHwxTjZ2P6CoX2wnF43oprR+YXJM6UUxATkNvyv/JHd+g==}
+  /@types/eslint@8.44.4:
+    resolution: {integrity: sha512-lOzjyfY/D9QR4hY9oblZ76B90MYTB3RrQ4z2vBIJKj9ROCRqdkYl2gSUx1x1a4IWPjKJZLL4Aw1Zfay7eMnmnA==}
     dependencies:
       '@types/estree': 1.0.2
       '@types/json-schema': 7.0.13
@@ -2330,6 +2333,15 @@ packages:
       resolve: 2.0.0-next.4
       semver: 6.3.1
       string.prototype.matchall: 4.0.10
+    dev: false
+
+  /eslint-plugin-sonarjs@0.21.0(eslint@8.51.0):
+    resolution: {integrity: sha512-oezUDfFT5S6j3rQheZ4DLPrbetPmMS7zHIKWGHr0CM3g5JgyZroz1FpIKa4jV83NsGpmgIeagpokWDKIJzRQmw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      eslint: 8.51.0
     dev: false
 
   /eslint-plugin-sort-keys@2.3.5:
