@@ -11,7 +11,7 @@ export function sonar(): FlatESLintConfigItem[] {
         "sonarjs": pluginSonarjs ,
       },
       rules: {
-       ...pluginSonarjs.configs.recommended
+       ...pluginSonarjs.configs.recommended.rules,
       },
     },
   ];

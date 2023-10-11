@@ -42,9 +42,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6.7.5
         version: 6.7.5(eslint@8.51.0)(typescript@5.2.2)
-      '@typescript-eslint/utils':
-        specifier: ^6.7.5
-        version: 6.7.5(eslint@8.51.0)(typescript@5.2.2)
       eslint-config-flat-gitignore:
         specifier: ^0.1.0
         version: 0.1.0

@@ -1,11 +1,13 @@
 import sortKeys from "eslint-plugin-sort-keys";
 import styleMigrate from "@stylistic/eslint-plugin-migrate";
-import rubiin from "../../dist/index.js";
+import rubiin from "./dist/index.js";
 
 export default rubiin(
   {
     vue: true,
-    typescript: true,
+    typescript: {
+      tsconfigPath: "../../tsconfig.json"
+    },
     yaml: true,
   },
   {

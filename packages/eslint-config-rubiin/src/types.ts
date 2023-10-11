@@ -155,6 +155,15 @@ export interface OptionsConfig extends OptionsComponentExts {
    */
   react?: boolean
 
+
+
+  /**
+   * Enable Sonarjs support.
+   *
+   * @default false
+   */
+  sonar?: boolean
+
   /**
    * Enable JSONC support.
    *
