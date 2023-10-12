@@ -125,7 +125,7 @@ export function stylistic(options: StylisticConfig = {}): ConfigItem[] {
         "style/wrap-iife": ["error", "any", { functionPrototypeMethods: true }],
         "style/yield-star-spacing": ["error", "both"],
         ...jsx
-        ? {
+          ? {
             'style/jsx-closing-bracket-location': 'error',
             'style/jsx-closing-tag-location': 'error',
             'style/jsx-curly-brace-presence': ['error', { propElementValues: 'always' }],
@@ -160,8 +160,8 @@ export function stylistic(options: StylisticConfig = {}): ConfigItem[] {
               },
             ],
           }
-        : {},
+          : {},
+      },
     },
-  },
-]
+  ]
 }

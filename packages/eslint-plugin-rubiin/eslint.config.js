@@ -1,6 +1,6 @@
 import sortKeys from "eslint-plugin-sort-keys";
 import styleMigrate from "@stylistic/eslint-plugin-migrate";
-import rubiin from "./dist/index.js";
+import rubiin from "@rubiin/eslint-config";
 
 export default rubiin(
   {
