@@ -31,9 +31,8 @@
     "stub": "tsup src/index.ts --format esm",
     "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
     "lint": "pnpm run stub && eslint .",
-    "lint:fix": "pnpm run stub && eslint . -c eslint.config.js",
-    "prepack": "nr build",
-    "release": "bumpp && pnpm publish",
+    "lint:fix": "pnpm run stub && eslint . --fix",
+    "prepublish": "nr build",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },

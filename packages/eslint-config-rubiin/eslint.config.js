@@ -1,4 +1,3 @@
-// @ts-check
 import rubiin from './dist/index.js'
 
 export default rubiin(
