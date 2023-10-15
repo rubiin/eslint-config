@@ -47,6 +47,7 @@
     "slidev",
     "Sonarjs",
     "tsup",
+    "Unprefixed",
     "vitepress"
   ]
 }
