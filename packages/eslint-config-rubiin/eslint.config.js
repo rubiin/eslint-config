@@ -1,4 +1,3 @@
-import sortKeys from "eslint-plugin-sort-keys";
 import styleMigrate from "@stylistic/eslint-plugin-migrate";
 import rubiin from "./dist/index.js";
 
@@ -12,9 +11,6 @@ export default rubiin(
   },
   {
     files: ["src/**/*.ts"],
-    plugins: {
-      "sort-keys": sortKeys,
-    },
     rules: {
       "sort-keys/sort-keys-fix": "error",
     },

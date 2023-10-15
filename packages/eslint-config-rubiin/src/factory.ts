@@ -14,6 +14,7 @@ import {
   node,
   react,
   sonar,
+  sortKeys,
   sortPackageJson,
   sortTsconfig,
   stylistic,
@@ -96,6 +97,9 @@ export function rubiin(options: OptionsConfig & ConfigItem = {}, ...userConfigs:
       stylistic: enableStylistic,
     }),
     unicorn(),
+
+    // Optional plugins (not enabled by default)
+    sortKeys(),
   );
 
   if (enableVue)
