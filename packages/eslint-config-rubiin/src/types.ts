@@ -189,6 +189,14 @@ export interface OptionsConfig extends OptionsComponentExts {
    */
   stylistic?: boolean
 
+
+  /**
+   * Enable sonarjs rules.
+   *
+   * @default false
+   */
+    sonarjs?: boolean
+
   /**
    * Control to disable some rules in editors.
    * @default auto-detect based on the process.env
@@ -207,5 +215,6 @@ export interface OptionsConfig extends OptionsComponentExts {
     jsonc?: ConfigItem["rules"]
     markdown?: ConfigItem["rules"]
     yaml?: ConfigItem["rules"]
+    sonarjs?: ConfigItem["rules"]
   }
 }

@@ -83,7 +83,6 @@ export function rubiin(options: OptionsConfig & ConfigItem = {}, ...userConfigs:
   // Base configs
   configs.push(
     ignores(),
-    sonar(),
     javascript({
       isInEditor,
       overrides: overrides.javascript,
@@ -165,6 +164,10 @@ export function rubiin(options: OptionsConfig & ConfigItem = {}, ...userConfigs:
       overrides: overrides.yaml,
       stylistic: enableStylistic,
     }));
+  }
+
+  if (options.sonarjs) {
+    configs.push(sonar());
   }
 
   if (options.markdown ?? true) {
