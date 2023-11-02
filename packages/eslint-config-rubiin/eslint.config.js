@@ -12,7 +12,7 @@ export default rubiin(
   {
     files: ["src/**/*.ts"],
     rules: {
-      "sort-keys/sort-keys-fix": "error",
+      'perfectionist/sort-objects': 'error',
     },
   },
   {

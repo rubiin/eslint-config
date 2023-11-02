@@ -4,7 +4,7 @@ import type { ConfigItem } from "./types";
  * Combine array and non-array configs into a single array.
  */
 export function combine(...configs: (ConfigItem | ConfigItem[])[]): ConfigItem[] {
-  return configs.flatMap(config => Array.isArray(config) ? config : [config]);
+  return configs.flat();
 }
 
 export function renameRules(rules: Record<string, any>, from: string, to: string) {
@@ -47,4 +47,9 @@ export function warnUnnecessaryOffRules() {
 
   for (const off of unnecessaryOffRules)
     console.warn(`[eslint] rule \`${off}\` is never turned on, you can remove the rule from your config`);
+}
+
+
+export function toArray<T>(value: T | T[]): T[] {
+  return Array.isArray(value) ? value : [value]
 }

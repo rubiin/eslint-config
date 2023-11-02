@@ -3,7 +3,7 @@ import type { ConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScr
 import { GLOB_SRC } from "../globs";
 import { parserTs, pluginAntfu, pluginDeprecation, pluginImport, pluginRubiin, pluginTs } from "../plugins";
 
-import { renameRules } from "../utils";
+import { renameRules, toArray } from "../utils";
 
 export function typescript(
   options?: OptionsComponentExts & OptionsOverrides & OptionsTypeScriptWithTypes & OptionsTypeScriptParserOptions,
@@ -12,7 +12,6 @@ export function typescript(
     componentExts = [],
     overrides = {},
     parserOptions = {},
-    tsconfigPath,
   } = options ?? {};
 
   const typeAwareRules: ConfigItem["rules"] = {
@@ -38,6 +37,11 @@ export function typescript(
 
     "deprecation/deprecation": "error",
   };
+
+  const tsconfigPath = options?.tsconfigPath
+  ? toArray(options.tsconfigPath)
+  : undefined
+
 
   return [
     {

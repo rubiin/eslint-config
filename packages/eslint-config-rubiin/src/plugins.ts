@@ -8,7 +8,7 @@ export * as pluginImport from "eslint-plugin-i";
 export { default as pluginJsdoc } from "eslint-plugin-jsdoc";
 export { default as pluginSonarjs } from "eslint-plugin-sonarjs";
 export * as pluginJsonc from "eslint-plugin-jsonc";
-export { default as pluginSortKeys } from 'eslint-plugin-sort-keys'
+export { default as pluginPerfectionist } from 'eslint-plugin-perfectionist'
 export * as pluginDeprecation from "eslint-plugin-deprecation";
 export { default as pluginMarkdown } from "eslint-plugin-markdown";
 export { default as pluginNode } from "eslint-plugin-n";

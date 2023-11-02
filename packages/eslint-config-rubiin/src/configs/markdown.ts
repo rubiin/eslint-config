@@ -46,7 +46,6 @@ export function markdown(options: OptionsComponentExts & OptionsOverrides = {}):
         "node/prefer-global/process": "off",
 
         "style/comma-dangle": "off",
-        "style/eol-last": "off",
 
         "ts/consistent-type-imports": "off",
         "ts/no-namespace": "off",

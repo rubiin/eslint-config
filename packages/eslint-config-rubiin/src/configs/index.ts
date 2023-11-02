@@ -10,7 +10,7 @@ export * from "./markdown";
 export * from "./node";
 export * from "./react";
 export * from "./sonar";
-export * from "./sort-keys";
+export * from "./perfectionist";
 export * from "./sort";
 export * from "./stylistic";
 export * from "./test";

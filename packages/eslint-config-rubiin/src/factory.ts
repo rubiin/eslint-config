@@ -14,7 +14,7 @@ import {
   node,
   react,
   sonar,
-  sortKeys,
+  perfectionist,
   sortPackageJson,
   sortTsconfig,
   stylistic,
@@ -97,8 +97,8 @@ export function rubiin(options: OptionsConfig & ConfigItem = {}, ...userConfigs:
     }),
     unicorn(),
 
-    // Optional plugins (not enabled by default)
-    sortKeys(),
+   // Optional plugins (installed but not enabled by default)
+   perfectionist(),
   );
 
   if (enableVue)
