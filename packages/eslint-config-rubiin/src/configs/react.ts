@@ -12,7 +12,7 @@ export function react(
 
   return [
     {
-      name: "rubiin:vue:setup",
+      name: "rubiin:react:setup",
       plugins: {
         "@arthurgeron/react-usememo": pluginReactUseMemo,
         "react": pluginReact,
@@ -36,11 +36,12 @@ export function react(
         ...pluginReactHooks.configs.recommended.rules,
         "@arthurgeron/react-usememo/require-usememo": [2],
         "react/react-in-jsx-scope": "off",
+        'react/prop-types': 'off',
         "style/jsx-quotes": ["error", "prefer-double"],
         ...stylistic
           ? {
-              // add react style rules here
-            }
+            // add react style rules here
+          }
           : {},
 
         ...overrides,
