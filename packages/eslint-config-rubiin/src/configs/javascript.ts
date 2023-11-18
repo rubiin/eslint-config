@@ -1,6 +1,6 @@
 import globals from "globals";
 import type { ConfigItem, OptionsIsInEditor, OptionsOverrides } from "../types";
-import { pluginAntfu, pluginRubiin, pluginUnusedImports } from "../plugins";
+import { pluginAntfu, pluginUnusedImports } from "../plugins";
 
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 
@@ -37,7 +37,6 @@ export function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): 
       name: "rubiin:javascript",
       plugins: {
         antfu: pluginAntfu,
-        rubiin: pluginRubiin,
         "unused-imports": pluginUnusedImports,
       },
       rules: {

@@ -27,7 +27,7 @@ export function yaml(
       languageOptions: {
         parser: parserYaml,
       },
-      name: 'antfu:yaml:rules',
+      name: 'rubiin:yaml:rules',
       rules: {
         'style/spaced-comment': 'off',
 

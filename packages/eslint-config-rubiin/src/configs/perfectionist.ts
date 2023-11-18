@@ -9,7 +9,7 @@ import { pluginPerfectionist } from '../plugins'
 export function perfectionist(): ConfigItem[] {
   return [
     {
-      name: 'antfu:perfectionist',
+      name: 'rubiin:perfectionist',
       plugins: {
         perfectionist: pluginPerfectionist,
       },

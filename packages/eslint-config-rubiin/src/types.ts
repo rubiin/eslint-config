@@ -1,5 +1,5 @@
-import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
-import type { ParserOptions } from "@typescript-eslint/parser";
+import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
+import type { ParserOptions } from '@typescript-eslint/parser'
 import type {
   EslintCommentsRules,
   EslintRules,
@@ -9,46 +9,42 @@ import type {
   MergeIntersection,
   NRules,
   Prefix,
-  ReactRules,
   RenamePrefix,
   RuleConfig,
-  TypeScriptRules,
-  UnicornRules,
-  Unprefix,
   VitestRules,
   VueRules,
   YmlRules,
 } from '@antfu/eslint-define-config'
+import type { RuleOptions as JSDocRules } from '@eslint-types/jsdoc/types'
+import type { RuleOptions as TypeScriptRules } from '@eslint-types/typescript-eslint/types'
+import type { RuleOptions as UnicornRules } from '@eslint-types/unicorn/types'
 import type { Rules as AntfuRules } from 'eslint-plugin-antfu'
-import type { UnprefixedRuleOptions } from '@stylistic/eslint-plugin'
+import type { StylisticCustomizeOptions, UnprefixedRuleOptions as StylisticRules } from '@stylistic/eslint-plugin'
 
+export type WrapRuleConfig<T extends { [key: string]: any }> = {
+  [K in keyof T]: T[K] extends RuleConfig ? T[K] : RuleConfig<T[K]>
+}
 
-type StylisticMergedRules = MergeIntersection<
-  EslintRules &
-  Unprefix<ReactRules, 'react/'> &
-  Unprefix<TypeScriptRules, '@typescript-eslint/'>
+export type Rules = WrapRuleConfig<
+  MergeIntersection<
+    RenamePrefix<TypeScriptRules, '@typescript-eslint/', 'ts/'> &
+    RenamePrefix<VitestRules, 'vitest/', 'test/'> &
+    RenamePrefix<YmlRules, 'yml/', 'yaml/'> &
+    RenamePrefix<NRules, 'n/', 'node/'> &
+    Prefix<StylisticRules, 'style/'> &
+    Prefix<AntfuRules, 'antfu/'> &
+    JSDocRules &
+    ImportRules &
+    EslintRules &
+    JsoncRules &
+    VueRules &
+    UnicornRules &
+    EslintCommentsRules &
+    {
+      'test/no-only-tests': RuleConfig<[]>
+    }
+  >
 >
-
-type StylisticRules = Pick<StylisticMergedRules, keyof UnprefixedRuleOptions>
-
-export type Rules = MergeIntersection<
-  RenamePrefix<TypeScriptRules, '@typescript-eslint/', 'ts/'> &
-  RenamePrefix<VitestRules, 'vitest/', 'test/'> &
-  RenamePrefix<YmlRules, 'yml/', 'yaml/'> &
-  RenamePrefix<NRules, 'n/', 'node/'> &
-  Prefix<StylisticRules, 'style/'> &
-  Prefix<AntfuRules, 'antfu/'> &
-  ImportRules &
-  EslintRules &
-  JsoncRules &
-  VueRules &
-  UnicornRules &
-  EslintCommentsRules &
-  {
-    'test/no-only-tests': RuleConfig<[]>
-  }
->
-
 
 export type ConfigItem = Omit<FlatESLintConfigItem<Rules, false>, 'plugins'> & {
   /**
@@ -64,6 +60,7 @@ export type ConfigItem = Omit<FlatESLintConfigItem<Rules, false>, 'plugins'> & {
    */
   plugins?: Record<string, any>
 }
+
 export interface OptionsComponentExts {
   /**
    * Additional extensions for components.
@@ -97,13 +94,11 @@ export interface OptionsStylistic {
   stylistic?: boolean | StylisticConfig
 }
 
-export interface StylisticConfig {
-  indent?: number | "tab"
-  quotes?: "single" | "double"
-  jsx?: boolean
+export interface StylisticConfig extends Pick<StylisticCustomizeOptions, 'indent' | 'quotes' | 'jsx' | 'semi'> {
 }
+
 export interface OptionsOverrides {
-  overrides?: ConfigItem["rules"]
+  overrides?: ConfigItem['rules']
 }
 
 export interface OptionsIsInEditor {
@@ -131,20 +126,20 @@ export interface OptionsConfig extends OptionsComponentExts {
   typescript?: boolean | OptionsTypeScriptWithTypes | OptionsTypeScriptParserOptions
 
   /**
-   * Enable test support.
-   *
-   * @default true
-   */
-  test?: boolean
-
-    /**
    * Enable JSX related rules.
    *
    * Currently only stylistic rules are included.
    *
    * @default true
    */
-    jsx?: boolean
+  jsx?: boolean
+
+  /**
+   * Enable test support.
+   *
+   * @default true
+   */
+  test?: boolean
 
   /**
    * Enable Vue support.
@@ -154,19 +149,28 @@ export interface OptionsConfig extends OptionsComponentExts {
   vue?: boolean
 
   /**
-   * Enable React support.
-   *
-   * @default auto-detect based on the dependencies
-   */
-  react?: boolean
-
-
-  /**
    * Enable JSONC support.
    *
    * @default true
    */
   jsonc?: boolean
+
+
+  /**
+ * Enable React support.
+ *
+ * @default auto-detect based on the dependencies
+ */
+  react?: boolean
+
+
+  /**
+* Enable sonarjs rules.
+*
+* @default false
+*/
+  sonarjs?: boolean
+
 
   /**
    * Enable YAML support.
@@ -187,15 +191,7 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default true
    */
-  stylistic?: boolean
-
-
-  /**
-   * Enable sonarjs rules.
-   *
-   * @default false
-   */
-    sonarjs?: boolean
+  stylistic?: boolean | StylisticConfig
 
   /**
    * Control to disable some rules in editors.
@@ -207,14 +203,14 @@ export interface OptionsConfig extends OptionsComponentExts {
    * Provide overrides for rules for each integration.
    */
   overrides?: {
-    javascript?: ConfigItem["rules"]
-    typescript?: ConfigItem["rules"]
-    test?: ConfigItem["rules"]
-    vue?: ConfigItem["rules"]
-    react?: ConfigItem["rules"]
-    jsonc?: ConfigItem["rules"]
-    markdown?: ConfigItem["rules"]
-    yaml?: ConfigItem["rules"]
+    javascript?: ConfigItem['rules']
+    typescript?: ConfigItem['rules']
+    test?: ConfigItem['rules']
+    vue?: ConfigItem['rules']
+    jsonc?: ConfigItem['rules']
+    markdown?: ConfigItem['rules']
+    yaml?: ConfigItem['rules']
     sonarjs?: ConfigItem["rules"]
+    react?: ConfigItem["rules"]
   }
 }
