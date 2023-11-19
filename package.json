@@ -1,6 +1,6 @@
 {
   "name": "@rubiin/eslint-config-monorepo",
-  "version": "1.9.12",
+  "version": "1.9.13",
   "private": true,
   "packageManager": "pnpm@8.10.2",
   "author": "(https://github.com/rubiin/)",
