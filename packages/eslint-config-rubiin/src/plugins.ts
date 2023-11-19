@@ -20,6 +20,7 @@ export { default as pluginSonarjs } from "eslint-plugin-sonarjs";
 export * as pluginDeprecation from "eslint-plugin-deprecation";
 export { default as pluginPerfectionist } from 'eslint-plugin-perfectionist'
 
+
 export { default as pluginReact } from "eslint-plugin-react";
 export { default as pluginReactHooks } from "eslint-plugin-react-hooks";
 export { default as pluginReactUseMemo } from "@arthurgeron/eslint-plugin-react-usememo";

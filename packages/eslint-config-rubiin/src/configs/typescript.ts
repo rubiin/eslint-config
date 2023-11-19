@@ -1,7 +1,7 @@
 import process from 'node:process'
 import type { ConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes } from '../types'
 import { GLOB_SRC } from '../globs'
-import { parserTs, pluginAntfu, pluginImport, pluginTs } from '../plugins'
+import { parserTs, pluginAntfu, pluginDeprecation, pluginImport, pluginTs } from '../plugins'
 import { renameRules, toArray } from '../utils'
 
 export function typescript(
@@ -33,6 +33,7 @@ export function typescript(
     'ts/restrict-plus-operands': 'error',
     'ts/restrict-template-expressions': 'error',
     'ts/unbound-method': 'error',
+    "deprecation/deprecation": "error",
   }
 
   const tsconfigPath = options?.tsconfigPath
@@ -47,6 +48,7 @@ export function typescript(
         antfu: pluginAntfu,
         import: pluginImport,
         ts: pluginTs as any,
+        deprecation: pluginDeprecation as any,
       },
     },
     {

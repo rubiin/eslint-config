@@ -6,7 +6,7 @@ export default rubiin(
   {
     vue: true,
     typescript: {
-      tsconfigPath: ".tsconfig.json"
+      tsconfigPath: "tsconfig.json"
     },
     yaml: true,
   },
