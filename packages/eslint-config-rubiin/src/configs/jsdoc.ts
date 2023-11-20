@@ -1,7 +1,7 @@
-import type { ConfigItem, OptionsStylistic } from "../types";
+import type { FlatConfigItem, OptionsStylistic } from "../types";
 import { pluginJsdoc } from "../plugins";
 
-export function jsdoc(options: OptionsStylistic = {}): ConfigItem[] {
+export async function jsdoc(options: OptionsStylistic = {}): Promise<FlatConfigItem[]> {
   const {
     stylistic = true,
   } = options;

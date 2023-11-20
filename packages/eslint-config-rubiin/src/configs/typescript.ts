@@ -1,19 +1,19 @@
 import process from 'node:process'
-import type { ConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes } from '../types'
 import { GLOB_SRC } from '../globs'
-import { parserTs, pluginAntfu, pluginDeprecation, pluginImport, pluginTs } from '../plugins'
-import { renameRules, toArray } from '../utils'
+import { pluginAntfu, pluginDeprecation, } from '../plugins'
+import type { FlatConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes } from '../types'
+import { interopDefault, renameRules, toArray } from '../utils'
 
-export function typescript(
+export async function typescript(
   options?: OptionsComponentExts & OptionsOverrides & OptionsTypeScriptWithTypes & OptionsTypeScriptParserOptions,
-): ConfigItem[] {
+):  Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
     overrides = {},
     parserOptions = {},
   } = options ?? {}
 
-  const typeAwareRules: ConfigItem['rules'] = {
+  const typeAwareRules: FlatConfigItem['rules'] = {
     'dot-notation': 'off',
     'no-implied-eval': 'off',
     'no-throw-literal': 'off',
@@ -40,13 +40,21 @@ export function typescript(
     ? toArray(options.tsconfigPath)
     : undefined
 
+    const [
+      pluginTs,
+      parserTs,
+    ] = await Promise.all([
+      interopDefault(import('@typescript-eslint/eslint-plugin')),
+      interopDefault(import('@typescript-eslint/parser')),
+    ] as const)
+
+
   return [
     {
       // Install the plugins without globs, so they can be configured separately.
       name: 'rubiin:typescript:setup',
       plugins: {
         antfu: pluginAntfu,
-        import: pluginImport,
         ts: pluginTs as any,
         deprecation: pluginDeprecation as any,
       },

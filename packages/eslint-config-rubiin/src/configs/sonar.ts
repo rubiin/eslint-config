@@ -1,8 +1,7 @@
 import { pluginSonarjs } from "../plugins";
-import type { ConfigItem } from "../types";
+import type { FlatConfigItem } from "../types";
 
-export function sonar(): ConfigItem[] {
-
+export async function sonar(): Promise<FlatConfigItem[]>{
 
   return [
     {

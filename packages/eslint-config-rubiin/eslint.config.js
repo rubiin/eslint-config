@@ -1,27 +1,19 @@
-import styleMigrate from "@stylistic/eslint-plugin-migrate";
-import rubiin from "./dist/index.js";
+// @ts-check
+import rubiin from './dist/index.js'
 
 export default rubiin(
   {
     vue: true,
-    typescript: {
-      tsconfigPath: "tsconfig.json"
-    },
-    yaml: true,
+    typescript: true,
+    ignores: [
+      'fixtures',
+      '_fixtures',
+    ],
   },
   {
-    files: ["src/**/*.ts"],
+    files: ['src/**/*.ts'],
     rules: {
       'perfectionist/sort-objects': 'error',
     },
   },
-  {
-    files: ["src/configs/*.ts"],
-    plugins: {
-      "style-migrate": styleMigrate,
-    },
-    rules: {
-      "style-migrate/migrate": ["error", { namespaceTo: "style" }],
-    },
-  },
-);
+)

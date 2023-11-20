@@ -1,8 +1,8 @@
-import type { ConfigItem, OptionsComponentExts, OptionsOverrides } from "../types";
+import type { FlatConfigItem, OptionsComponentExts, OptionsOverrides } from "../types";
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../globs";
 import { pluginMarkdown } from "../plugins";
 
-export function markdown(options: OptionsComponentExts & OptionsOverrides = {}): ConfigItem[] {
+export async function markdown(options: OptionsComponentExts & OptionsOverrides = {}): Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
     overrides = {},

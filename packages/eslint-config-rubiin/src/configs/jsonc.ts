@@ -1,8 +1,8 @@
-import type { ConfigItem, OptionsOverrides, OptionsStylistic } from "../types";
+import type { FlatConfigItem, OptionsOverrides, OptionsStylistic } from "../types";
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../globs";
 import { parserJsonc, pluginJsonc } from "../plugins";
 
-export function jsonc(options: OptionsStylistic & OptionsOverrides = {}): ConfigItem[] {
+export async function jsonc(options: OptionsStylistic & OptionsOverrides = {}): Promise<FlatConfigItem[]> {
   const {
     stylistic = true,
     overrides = {},

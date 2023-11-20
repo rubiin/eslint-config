@@ -1,8 +1,7 @@
-import process from 'node:process'
-import fs from 'node:fs'
-import { isPackageExists } from 'local-pkg'
 import gitignore from 'eslint-config-flat-gitignore'
-import type { ConfigItem, OptionsConfig } from './types'
+import { isPackageExists } from 'local-pkg'
+import fs from 'node:fs'
+import process from 'node:process'
 import {
   comments,
   ignores,
@@ -13,20 +12,20 @@ import {
   markdown,
   node,
   perfectionist,
+  sonar,
   sortPackageJson,
   sortTsconfig,
   stylistic,
-  react,
-  sonar,
   test,
   typescript,
   unicorn,
   vue,
-  yaml,
+  yaml
 } from './configs'
+import type { Awaitable, FlatConfigItem, OptionsConfig, UserConfigItem } from './types'
 import { combine } from './utils'
 
-const flatConfigProps: (keyof ConfigItem)[] = [
+const flatConfigProps: (keyof FlatConfigItem)[] = [
   'files',
   'ignores',
   'languageOptions',
@@ -57,7 +56,9 @@ const ReactPackages = [
 /**
  * Construct an array of ESLint flat config items.
  */
-export function rubiin(options: OptionsConfig & ConfigItem = {}, ...userConfigs: (ConfigItem | ConfigItem[])[]) {
+export function rubiin( options: OptionsConfig & FlatConfigItem = {},
+  ...userConfigs: Awaitable<UserConfigItem | UserConfigItem[]>[]
+): Promise<UserConfigItem[]> {
   const {
     componentExts = [],
     gitignore: enableGitignore = true,
@@ -76,7 +77,7 @@ export function rubiin(options: OptionsConfig & ConfigItem = {}, ...userConfigs:
   if (stylisticOptions && !('jsx' in stylisticOptions))
     stylisticOptions.jsx = options.jsx ?? true
 
-  const configs: ConfigItem[][] = []
+    const configs: Awaitable<FlatConfigItem[]>[] = []
 
   if (enableGitignore) {
     if (typeof enableGitignore !== 'boolean') {
@@ -179,7 +180,7 @@ export function rubiin(options: OptionsConfig & ConfigItem = {}, ...userConfigs:
     if (key in options)
       acc[key] = options[key] as any
     return acc
-  }, {} as ConfigItem)
+  }, {} as FlatConfigItem)
   if (Object.keys(fusedConfig).length)
     configs.push([fusedConfig])
 

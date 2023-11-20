@@ -1,10 +1,10 @@
-import type { ConfigItem, OptionsOverrides, OptionsStylistic } from '../types'
+import type { FlatConfigItem, OptionsOverrides, OptionsStylistic } from '../types'
 import { GLOB_YAML } from '../globs'
 import { parserYaml, pluginYaml } from '../plugins'
 
-export function yaml(
+export async function yaml(
   options: OptionsOverrides & OptionsStylistic = {},
-): ConfigItem[] {
+):  Promise<FlatConfigItem[]> {
   const {
     overrides = {},
     stylistic = true,

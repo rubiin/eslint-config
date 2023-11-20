@@ -1,11 +1,15 @@
-import type { ConfigItem } from "./types";
+import type { FlatConfigItem } from "./types";
+import type { Awaitable, UserConfigItem } from './types'
 
 /**
  * Combine array and non-array configs into a single array.
  */
-export function combine(...configs: (ConfigItem | ConfigItem[])[]): ConfigItem[] {
-  return configs.flat();
+
+export async function combine(...configs: Awaitable<UserConfigItem | UserConfigItem[]>[]): Promise<UserConfigItem[]> {
+  const resolved = await Promise.all(configs)
+  return resolved.flat()
 }
+
 
 export function renameRules(rules: Record<string, any>, from: string, to: string) {
   return Object.fromEntries(
@@ -18,17 +22,22 @@ export function renameRules(rules: Record<string, any>, from: string, to: string
   );
 }
 
+export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {
+  const resolved = await m
+  return (resolved as any).default || resolved
+}
+
 const rulesOn = new Set<string>();
 const rulesOff = new Set<string>();
 
-export function recordRulesStateConfigs(configs: ConfigItem[]): ConfigItem[] {
+export function recordRulesStateConfigs(configs: FlatConfigItem[]): FlatConfigItem[] {
   for (const config of configs)
     recordRulesState(config.rules ?? {});
 
   return configs;
 }
 
-export function recordRulesState(rules: ConfigItem["rules"]): ConfigItem["rules"] {
+export function recordRulesState(rules: FlatConfigItem["rules"]): FlatConfigItem["rules"] {
   for (const [key, value] of Object.entries(rules ?? {})) {
     const firstValue = Array.isArray(value) ? value[0] : value;
     if (firstValue == null)

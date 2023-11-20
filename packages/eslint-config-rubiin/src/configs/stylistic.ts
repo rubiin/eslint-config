@@ -1,11 +1,11 @@
-import type { ConfigItem, StylisticConfig } from "../types";
+import type { FlatConfigItem, StylisticConfig } from "../types";
 import { pluginAntfu, pluginStylistic } from "../plugins";
 
-export function stylistic(options: StylisticConfig = {}): ConfigItem[] {
+export async function stylistic(options: StylisticConfig = {}): Promise<FlatConfigItem[]> {
   const {
     indent = 2,
     jsx = true,
-    quotes = 'double',
+    quotes = 'single',
     semi = false,
   } = options
 

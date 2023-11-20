@@ -11,7 +11,7 @@
     "skipLibCheck": true
   },
   "include": [
-    "./src/**/*.ts",
+    "**/*.ts",
     "eslint.config.js"
   ]
 }

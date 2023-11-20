@@ -20,10 +20,13 @@ import type { RuleOptions as TypeScriptRules } from '@eslint-types/typescript-es
 import type { RuleOptions as UnicornRules } from '@eslint-types/unicorn/types'
 import type { Rules as AntfuRules } from 'eslint-plugin-antfu'
 import type { StylisticCustomizeOptions, UnprefixedRuleOptions as StylisticRules } from '@stylistic/eslint-plugin'
+import { Linter } from "eslint"
 
 export type WrapRuleConfig<T extends { [key: string]: any }> = {
   [K in keyof T]: T[K] extends RuleConfig ? T[K] : RuleConfig<T[K]>
 }
+
+export type Awaitable<T> = T | Promise<T>
 
 export type Rules = WrapRuleConfig<
   MergeIntersection<
@@ -46,7 +49,7 @@ export type Rules = WrapRuleConfig<
   >
 >
 
-export type ConfigItem = Omit<FlatESLintConfigItem<Rules, false>, 'plugins'> & {
+export type FlatConfigItem = Omit<FlatESLintConfigItem<Rules, false>, 'plugins'> & {
   /**
    * Custom name of each config item
    */
@@ -60,6 +63,9 @@ export type ConfigItem = Omit<FlatESLintConfigItem<Rules, false>, 'plugins'> & {
    */
   plugins?: Record<string, any>
 }
+
+
+export type UserConfigItem = FlatConfigItem | Linter.FlatConfig
 
 export interface OptionsComponentExts {
   /**
@@ -98,7 +104,7 @@ export interface StylisticConfig extends Pick<StylisticCustomizeOptions, 'indent
 }
 
 export interface OptionsOverrides {
-  overrides?: ConfigItem['rules']
+  overrides?: FlatConfigItem['rules']
 }
 
 export interface OptionsIsInEditor {
@@ -203,14 +209,14 @@ export interface OptionsConfig extends OptionsComponentExts {
    * Provide overrides for rules for each integration.
    */
   overrides?: {
-    javascript?: ConfigItem['rules']
-    typescript?: ConfigItem['rules']
-    test?: ConfigItem['rules']
-    vue?: ConfigItem['rules']
-    jsonc?: ConfigItem['rules']
-    markdown?: ConfigItem['rules']
-    yaml?: ConfigItem['rules']
-    sonarjs?: ConfigItem["rules"]
-    react?: ConfigItem["rules"]
+    javascript?: FlatConfigItem['rules']
+    typescript?: FlatConfigItem['rules']
+    test?: FlatConfigItem['rules']
+    vue?: FlatConfigItem['rules']
+    jsonc?: FlatConfigItem['rules']
+    markdown?: FlatConfigItem['rules']
+    yaml?: FlatConfigItem['rules']
+    sonarjs?: FlatConfigItem["rules"]
+    react?: FlatConfigItem["rules"]
   }
 }

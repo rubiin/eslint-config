@@ -1,10 +1,10 @@
-import type { ConfigItem, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from "../types";
+import type { FlatConfigItem, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from "../types";
 import { GLOB_JSX, GLOB_TSX } from "../globs";
 import { parserTs, pluginReact, pluginReactHooks, pluginReactUseMemo } from "../plugins";
 
 export function react(
   options: OptionsHasTypeScript & OptionsOverrides & OptionsStylistic = {},
-): ConfigItem[] {
+): FlatConfigItem[] {
   const {
     overrides = {},
     stylistic = true,
