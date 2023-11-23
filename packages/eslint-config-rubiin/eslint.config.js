@@ -1,6 +1,6 @@
 import rubiin from './dist/index.js'
 
-export default rubiin(
+export default await rubiin(
   {
     vue: true,
     typescript: true,

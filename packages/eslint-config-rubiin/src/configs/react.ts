@@ -1,14 +1,23 @@
 import type { FlatConfigItem, OptionsHasTypeScript, OptionsOverrides, OptionsStylistic } from "../types";
 import { GLOB_JSX, GLOB_TSX } from "../globs";
-import { parserTs, pluginReact, pluginReactHooks, pluginReactUseMemo } from "../plugins";
+import {  pluginReact, pluginReactHooks, pluginReactUseMemo } from "../plugins";
+import { interopDefault } from "../utils";
 
-export function react(
+export async function react(
   options: OptionsHasTypeScript & OptionsOverrides & OptionsStylistic = {},
-): FlatConfigItem[] {
+): Promise<FlatConfigItem[]> {
   const {
     overrides = {},
     stylistic = true,
   } = options;
+
+
+  const [
+    parserTs,
+  ] = await Promise.all([
+    interopDefault(import('@typescript-eslint/parser')),
+  ] as const)
+
 
   return [
     {
